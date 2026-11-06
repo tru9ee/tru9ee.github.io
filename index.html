@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d17"><title>Tokyo Hosting</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#090d17;color:#f4f6ff;font:15px system-ui,Arial}header{height:68px;border-bottom:1px solid #202a3e;display:flex;align-items:center;justify-content:space-between;padding:0 max(18px,calc((100vw - 1050px)/2))}.brand{font-weight:900;letter-spacing:2px}.brand span{color:#a69aff}.tag{font-size:11px;color:#91a0b8;border:1px solid #29354b;padding:6px 10px;border-radius:20px}.wrap{max-width:1050px;margin:auto;padding:38px 18px}.hero{padding:24px 0 30px}.eyebrow{color:#9e91ff;font-size:10px;font-weight:800;letter-spacing:2px}.hero h1{font-size:clamp(35px,6vw,58px);line-height:1.04;letter-spacing:-2px;margin:12px 0}.hero h1 span{color:#9e91ff}.muted{color:#9aa8bd}.layout{display:grid;grid-template-columns:250px 1fr;gap:16px}.panel{background:#111a2a;border:1px solid #253149;border-radius:14px;padding:18px}.panel h2{font-size:16px;margin:0 0 15px}.nav button{width:100%;text-align:left;margin:4px 0;background:transparent;color:#b9c4d8;border:0;padding:12px;border-radius:9px;cursor:pointer}.nav button.active,.nav button:hover{background:#242345;color:white}.view{display:none}.view.active{display:block}.field{width:100%;padding:12px;border-radius:9px;border:1px solid #35415b;background:#0b1220;color:white;margin:8px 0 12px}.btn{border:0;border-radius:9px;padding:11px 15px;font-weight:750;background:linear-gradient(110deg,#7869ff,#568ff2);color:white;cursor:pointer}.btn.alt{background:#26344a}.btn.danger{background:#522b3a}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.file{padding:12px;border:1px solid #27344a;border-radius:9px;margin:8px 0;display:flex;justify-content:space-between;align-items:center;gap:8px}.file small{color:#9ba8bc}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#070b13;border:1px solid #202b40;padding:14px;border-radius:10px;min-height:150px;color:#c8d5e9;font-size:12px}.hint{font-size:12px;color:#9aa8bd}.hidden{display:none!important}#login{max-width:420px;margin:50px auto}.status{font-size:12px;color:#9faec3;margin:10px 0}.tilecount{color:#a69aff;font-weight:800}footer{margin-top:30px;color:#65738a;font-size:11px;display:flex;justify-content:space-between}@media(max-width:680px){.layout{grid-template-columns:1fr}.nav{display:grid;grid-template-columns:repeat(3,1fr)}.nav button{text-align:center;font-size:12px;padding:9px}.wrap{padding-top:22px}}
+</style>
+</head>
+<body>
+<header><div class="brand">TOKYO <span>HOSTING</span></div><div class="tag">PYTHON CONTROL PANEL</div></header>
+<main class="wrap">
+<section class="hero"><div class="eyebrow">YOUR PRIVATE PYTHON WORKSPACE</div><h1>Run your code.<br><span>Keep control.</span></h1><p class="muted">Upload Python files, launch them, and inspect output from one dashboard.</p></section>
+<section id="login" class="panel"><h2>Dashboard login</h2><p class="hint">Enter the panel password configured on your Python host.</p><input id="password" class="field" type="password" autocomplete="current-password" placeholder="Panel password"><button class="btn" onclick="login()">Sign in</button><div id="loginMsg" class="status"></div></section>
+<section id="app" class="layout hidden">
+<aside class="panel nav">
+<button class="active" data-view="files" onclick="showView('files',this)">▤ Files</button>
+<button data-view="run" onclick="showView('run',this)">▶ Run script</button>
+<button data-view="history" onclick="showView('history',this)">◷ History</button>
+<button onclick="logout()">↪ Sign out</button>
+</aside>
+<div class="panel">
+<section id="files" class="view active"><h2>Python files</h2><p class="hint">Upload .py files up to 2 MB each.</p><input id="upload" class="field" type="file" accept=".py"><button class="btn" onclick="uploadFile()">Upload file</button><div id="filesList"></div><div id="filesMsg" class="status"></div></section>
+<section id="run" class="view"><h2>Run a Python script</h2><label class="hint" for="script">Choose a file</label><select id="script" class="field"></select><button class="btn" onclick="runScript()">Run now</button><div id="runMsg" class="status"></div><h2>Output</h2><pre id="output">Your script output will appear here.</pre></section>
+<section id="history" class="view"><h2>Recent runs</h2><div id="historyList"></div></section>
+</div></section>
+<footer><span>TOKYO HOSTING</span><span>Python execution on your connected host</span></footer>
+</main>
+<script>
+async function api(path,opts={}){const r=await fetch('/api'+path,{credentials:'same-origin',...opts});let d={};try{d=await r.json()}catch{}if(!r.ok)throw Error(d.error||'Request failed');return d}
+function showView(id,btn){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button[data-view]').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');if(id==='files')loadFiles();if(id==='history')loadHistory()}
+async function check(){try{const d=await api('/me');if(d.authenticated)openApp()}catch{}}
+function openApp(){document.getElementById('login').classList.add('hidden');document.getElementById('app').classList.remove('hidden');loadFiles()}
+async function login(){const m=document.getElementById('loginMsg');m.textContent='Signing in…';try{await api('/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:document.getElementById('password').value})});openApp()}catch(e){m.textContent=e.message}}
+async function logout(){await api('/logout',{method:'POST'});location.reload()}
+async function loadFiles(){try{const d=await api('/files');const list=document.getElementById('filesList'),sel=document.getElementById('script');list.innerHTML='';sel.innerHTML='';d.files.forEach(f=>{const o=document.createElement('option');o.value=f;o.textContent=f;sel.append(o);const row=document.createElement('div');row.className='file';const name=document.createElement('span');name.textContent=f;const del=document.createElement('button');del.className='btn danger';del.textContent='Delete';del.onclick=()=>deleteFile(f);row.append(name,del);list.append(row)});if(!d.files.length)list.textContent='No Python files yet. Upload one above.'}catch(e){document.getElementById('filesMsg').textContent=e.message}}
+async function uploadFile(){const f=document.getElementById('upload').files[0];if(!f)return;const fd=new FormData();fd.append('file',f);try{await api('/upload',{method:'POST',body:fd});document.getElementById('filesMsg').textContent='Uploaded '+f.name;document.getElementById('upload').value='';loadFiles()}catch(e){document.getElementById('filesMsg').textContent=e.message}}
+async function deleteFile(f){if(!confirm('Delete '+f+'?'))return;try{await api('/files/'+encodeURIComponent(f),{method:'DELETE'});loadFiles()}catch(e){alert(e.message)}}
+async function runScript(){const f=document.getElementById('script').value;if(!f)return;const m=document.getElementById('runMsg');m.textContent='Running…';document.getElementById('output').textContent='';try{const d=await api('/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({filename:f})});m.textContent='Finished · Run '+d.run_id;document.getElementById('output').textContent=d.output; }catch(e){m.textContent=e.message}}
+async function loadHistory(){const el=document.getElementById('historyList');try{const d=await api('/runs');el.innerHTML='';d.runs.forEach(x=>{const b=document.createElement('button');b.className='file';b.style.width='100%';b.textContent='Run '+x.id;b.onclick=async()=>{const z=await api('/runs/'+x.id);document.getElementById('output').textContent=z.output;showView('run',document.querySelector('[data-view=run]'))};el.append(b)});if(!d.runs.length)el.textContent='No runs yet.'}catch(e){el.textContent=e.message}}
+check();
+</script>
+</body></html>
