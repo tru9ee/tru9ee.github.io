@@ -1,307 +1,44 @@
-<!DOCTYPE html>
-<html dir='ltr' lang='en-GB' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
-
+<!doctype html>
+<html lang="ckb" dir="rtl">
 <head>
- <title>YTube Downloader</title>
- <meta charset='UTF-8' />
- <meta content='width=device-width, user-scalable=no' name='viewport' />
- <meta content='https://i.imgur.com/TzttUJY.png' property='og:image' />
- <link href='Etc/download.png' rel='shortcut icon' type='image/vnd.microsoft.icon' />
- <link href='Etc/download.png' rel='apple-touch-icon' />
- <link href='as.webmanifest' rel='manifest' />
- <link href='css/main.css' media='all' rel='stylesheet' type='text/css' />
- <script charset='utf-8' src='js/popup.js'></script>
- <link crossorigin='anonymous' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css' integrity='sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==' referrerpolicy='no-referrer' rel='stylesheet' />
- <script charset='utf-8' src='js/share.js' type='text/javascript'></script>
- <script>
-  var uri = window.location.toString();
-    if (uri.indexOf("?m=1","?m=1") > 0) {var clean_uri = uri.substring(0, uri.indexOf("?m=1"));window.history.replaceState({}, document.title, clean_uri);}
-    if (uri.indexOf("&m=1","&m=1") > 0) {var clean_uri = uri.substring(0, uri.indexOf("&m=1"));window.history.replaceState({}, document.title, clean_uri);}
- </script>
- <style id='page-skin-1' type='text/css'>
-  <!--
-  *{box-sizing: border-box;}
-  body{margin:0;}
-  #cont{padding:10px;}
-  .mb5{
-  margin-bottom:10px;
-  margin-top:13px;
-  margin-left:5px;
-  margin-right:5px;
-  }
-  button{border: 0;cursor: pointer;}
-  .resv{max-width: 320px;padding: 10px;display: inline-block;text-align: center;box-sizing: border-box;font-size: 16px;}
-  #res{width: 100vw;display: flex;justify-content: center;flex-wrap: wrap;}
-  
-  -->
- </style>
- <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109' />
- <meta name='google-adsense-platform-domain' content='blogspot.com' />
-
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9516223838558864&host=ca-host-pub-1556223355139109" crossorigin="anonymous"></script>
-
- <!-- data-ad-client=ca-pub-9516223838558864 -->
-
- <script type="text/javascript" language="javascript">
-  // Supply ads personalization default for EEA readers
-  // See https://www.blogger.com/go/adspersonalization
-  adsbygoogle = window.adsbygoogle || [];
-  if (typeof adsbygoogle.requestNonPersonalizedAds === 'undefined') {
-    adsbygoogle.requestNonPersonalizedAds = 1;
-  }
- </script>
-
-
- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&family=Dancing+Script&family=Fira+Sans">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090d18">
+<meta name="description" content="گەڕان و بینین و داگرتنی ڤیدیۆی یوتیوب بە کوردی">
+<title>یوتیوب | گەڕان و داگرتن</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+:root{color-scheme:dark;--bg:#080c16;--panel:#111827;--line:#26334a;--text:#f5f7ff;--muted:#9ba9bf;--blue:#6685ff;--cyan:#4bd5d0}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 15% 0%,#273b7b55,transparent 40%),var(--bg);color:var(--text);font-family:"Noto Sans Arabic",sans-serif}.wrap{width:min(900px,calc(100% - 28px));margin:auto}.top{border-bottom:1px solid #ffffff12;background:#080c16dd;backdrop-filter:blur(16px)}.nav{height:72px;display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#526ff0,#7959e8);font-size:19px}.brand{font-weight:900;font-size:21px}.hero{text-align:center;padding:42px 0 25px}.hero h1{font-size:clamp(28px,6vw,45px);margin:0 0 10px;font-weight:900}.grad{background:linear-gradient(90deg,#8ba4ff,#54ddd2);background-clip:text;color:transparent}.hero p{color:var(--muted);line-height:1.9;margin:0}.panel{background:linear-gradient(145deg,#151f31,#101827);border:1px solid var(--line);border-radius:23px;padding:clamp(17px,4vw,27px);box-shadow:0 18px 55px #0006}.search{display:flex;gap:10px}.field{flex:1;min-width:0;background:#090f1c;border:1px solid #2a3952;border-radius:15px;padding:15px;color:white;font:inherit;outline:none}.field:focus{border-color:var(--blue);box-shadow:0 0 0 3px #6685ff22}.btn{border:0;border-radius:15px;padding:13px 20px;color:white;font:inherit;font-weight:800;background:linear-gradient(135deg,#526ff0,#7959e8);cursor:pointer}.btn:disabled{opacity:.55}.note{font-size:13px;color:var(--muted);line-height:1.9;margin:13px 2px 0}.loader{display:none;align-items:center;justify-content:center;gap:10px;padding:22px;color:#c8d2e4}.loader.show{display:flex}.spin{width:19px;height:19px;border:2px solid #52617b;border-top-color:#8ca3ff;border-radius:50%;animation:spin .7s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:18px}.video{overflow:hidden;border:1px solid var(--line);border-radius:17px;background:#0d1422}.thumb{aspect-ratio:16/9;background:#1b2940;position:relative}.thumb img{width:100%;height:100%;object-fit:cover}.play{position:absolute;inset:0;margin:auto;width:52px;height:52px;border:0;border-radius:50%;background:white;color:#111827}.meta{padding:13px}.title{font-weight:800;line-height:1.6}.sub{font-size:12px;color:var(--muted);margin-top:5px}.actions{display:flex;gap:8px;margin-top:12px}.actions button{flex:1;padding:10px 6px;font-size:13px}.secondary{background:#1d2a40;border:1px solid var(--line)}.empty{margin-top:17px;border:1px dashed #3a4b68;border-radius:15px;padding:22px;text-align:center;color:var(--muted);line-height:1.9}.formats{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:14px}.format{border:1px solid #40537a;background:#1b2a43;color:white;padding:10px 13px;border-radius:12px;cursor:pointer}.modal{display:none;position:fixed;inset:0;background:#000c;z-index:10;align-items:center;justify-content:center;padding:16px}.modal.show{display:flex}.modalbox{width:min(850px,100%);background:#111827;border:1px solid var(--line);border-radius:18px;overflow:hidden}.modalhead{padding:12px 16px;display:flex;justify-content:space-between}.close{background:#26334a;border:0;color:white;border-radius:9px;width:35px;font-size:22px}.player{aspect-ratio:16/9;background:#000}.player iframe{width:100%;height:100%;border:0}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;background:#f5f7ff;color:#111827;padding:12px 18px;border-radius:12px;transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}footer{text-align:center;padding:30px 0;color:#71809a;font-size:12px}@media(max-width:600px){.search{flex-direction:column}.search .btn{width:100%}.grid{grid-template-columns:1fr}.hero{padding-top:32px}}
+</style>
 </head>
-
 <body>
- <div class='pad-10 shadow bg-green relative' style='margin-bottom:10px;display: flex;align-items: center;'>
-  <span class='white josefin-font f-20' style='flex: 1;margin-left: 3px;margin-top: 2px;'><i class='fa-brands fa-spotify' style='margin-right:6px;font-size:22px'></i>Ytube Downloader</span>
-  <button class='s-40 active circle btn right' onclick='abt()' style='background:transparent;display: flex;align-items: center;'><svg fill='#fff' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
-    <path clip-rule='evenodd' d='M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z' fill-rule='evenodd'></path>
-   </svg></button>
- </div>
- <div id='cont'>
-  <form name='form'>
-   <div class='pad-15 alert-green'>
-    <i class='fa-brands f-20 fa-spotify' style='margin-left:5px;'></i>
-    <b class='f-20 centre margin-5 black josefin-font'> Music Player</b><br />
-    <input class='pad-10 input-green josefin-font f-16 black mb5' id='sngin' placeholder='Enter song name...' required='' style='width: 92%;' type='search' /><br />
-    <button class='bg-green btn margin-5 white shadow josefin-font pad-10 f-16 radius-5 active' id='ftb' type='submit'><i class='fa-solid fa-search' style='margin-right:5px;font-size:16px'></i>Search</button>
-   </div>
-  </form>
- </div>
- <div id='rd'>
-  <div id='res'></div>
- </div>
- <div class='no-items section' id='required'></div>
- <script>
-  document.form.addEventListener("submit",function(e){
-    e.preventDefault();
-    sngf();
-    document.getElementById("sngin").blur();
-  });
-  var res = document.getElementById("res");
-  function sngf(){
-  res.innerHTML = "";
-  var l = as.loader();
-  l.show();
-  var sgtxt = document.getElementById("sngin").value;
-  const options = {
-  	method: 'GET',
-  	headers: {
-  		'X-RapidAPI-Key': '3a6008168fmshc89e2b9e019262ap1db9f8jsne1aad62d8bff',
-  		'X-RapidAPI-Host': 'yt-api.p.rapidapi.com'
-  	}
-  };
-  
-  fetch('https://yt-api.p.rapidapi.com/search?type=video&query='+sgtxt, options)
-  	.then(response => response.json())
-  	.then(x => {
-        var vs = x.data;
-        vs.forEach(v => {
-          var d = document.createElement("div");
-          d.setAttribute("class","alert-green resv margin-10");
-          d.setAttribute("data-id",v.videoId);
-          d.innerHTML += "<div id='"+v.videoId+"' style='margin: auto;'><img src='"+v.thumbnail[0].url+"' style='width: 300px;margin-bottom:7px;border:1px solid black;'/><span class='Quicksand-font black'>"+v.title+"</span></div><br/>";
-    var p = document.createElement("button");
-    p.innerText = "Play Video";
-    p.setAttribute("class","pad-10 white josefin-font shadow margin-5 active radius-5 f-18 bg-green");
-    p.addEventListener("click",function(){
-    this.parentElement.getElementsByTagName("img")[0].style.display = "none";
-    this.parentElement.getElementsByTagName("span")[0].style.display = "none";
-    var f = "<iframe allow='autoplay' allowfullscreen='true' frameborder='none' height='315' scrolling='no' src='https://www.youtube.com/embed/"+v.videoId+"?autoplay=1' width='100%'></iframe>";
-    document.getElementById(v.videoId).innerHTML += f;
-    this.style.display = "none";
-    });
-    d.appendChild(p);
-          var b = document.createElement("button");
-    b.innerText = "Download";
-    b.setAttribute("class","pad-10 josefin-font white shadow margin-5 active radius-5 f-18 bg-green");
-          b.addEventListener("click", function(){
-    var id = this.parentElement.getAttribute("data-id");
-    var loader = as.loader();
-    loader.show();
-    var dwns = [];
-     fetch('https://yt-api.p.rapidapi.com/dl?id='+id, options)
-  	.then(response => response.json())
-  	.then(x => {
-  	  var fs = x.formats;
-  	  for(var i = 0;i < fs.length;i++){
-  	     var f = fs[i];
-           var dwn = {
-             html: f.qualityLabel+".mp4",
-             close: false,
-             click: function(){
-              window.open(f.url);
-             }
-           }
-          dwns.push(dwn);
-     }
-        var afs = x.adaptiveFormats;
-  	  for(var i = 0;i < afs.length;i++){
-  	     var af = afs[i];
-     if(i != 0 && afs[i-1].quality != af.quality){
-           var dwna = {
-             html: af.quality+".mp3",
-             close: false,
-             click: function(){
-              window.open(af.url);
-             }
-           }
-           dwns.push(dwna);
-         }else{i++;}
-  	  }
-       loader.hide();
-        as.popup({
-          title: x.title,
-          titleSize: 20,
-          image: x.thumbnail[3].url,
-          imageHeight: 210,
-          imageWidth: 280,
-          closeIcon: true,
-          closeBtn: false,
-          buttons: dwns
-         });
-  	})
-  	.catch(err => {
-         loader.hide();
-         as.alert({
-          icon: true,
-          title: "Error",
-          text: "Please enter valid youtube url or try again later"
-         });
-       });
-    });
-          d.appendChild(b);
-          res.appendChild(d);
-        });
-  	   l.hide();
-  	})
-  	.catch(err => {l.hide();as.alert({title: "Error",text: err})});
-  }
-    
-   const trend = 'https://yt-api.p.rapidapi.com/trending?geo=IN&lang=hi';
-  const options = {
-  	method: 'GET',
-  	headers: {
-  		'X-RapidAPI-Key': '3a6008168fmshc89e2b9e019262ap1db9f8jsne1aad62d8bff',
-  		'X-RapidAPI-Host': 'yt-api.p.rapidapi.com'
-  	}
-  };
-  
-    fetch(trend, options)
-    .then(response => response.json())
-    .then(g => {
-      h = g.data;
-      h.forEach(v => {
-          var d = document.createElement("div");
-          d.setAttribute("class","alert-green resv margin-10");
-          d.setAttribute("data-id",v.videoId);
-          d.innerHTML += "<div id='"+v.videoId+"' style='margin: auto;'><img src='"+v.thumbnail[0].url+"' style='width: 300px;margin-bottom:7px;border:1px solid black;'/><span class='Quicksand-font black'>"+v.title+"</span></div><br/>";
-    var p = document.createElement("button");
-    p.innerText = "Play Video";
-    p.setAttribute("class","pad-10 white josefin-font shadow margin-5 active radius-5 f-18 bg-green");
-    p.addEventListener("click",function(){
-    this.parentElement.getElementsByTagName("img")[0].style.display = "none";
-    this.parentElement.getElementsByTagName("span")[0].style.display = "none";
-    var f = "<iframe allow='autoplay' allowfullscreen='true' frameborder='none' height='315' scrolling='no' src='https://www.youtube.com/embed/"+v.videoId+"?autoplay=1' width='100%'></iframe>";
-    document.getElementById(v.videoId).innerHTML += f;
-    this.style.display = "none";
-    });
-    d.appendChild(p);
-          var b = document.createElement("button");
-    b.innerText = "Download";
-    b.setAttribute("class","pad-10 josefin-font white shadow margin-5 active radius-5 f-18 bg-green");
-          b.addEventListener("click", function(){
-    var id = this.parentElement.getAttribute("data-id");
-    var loader = as.loader();
-    loader.show();
-    var dwns = [];
-     fetch('https://yt-api.p.rapidapi.com/dl?id='+id, options)
-  	.then(response => response.json())
-  	.then(x => {
-  	  var fs = x.formats;
-  	  for(var i = 0;i < fs.length;i++){
-  	     var f = fs[i];
-           var dwn = {
-             html: f.qualityLabel+".mp4",
-             close: false,
-             click: function(){
-              window.open(f.url);
-             }
-           }
-          dwns.push(dwn);
-     }
-        var afs = x.adaptiveFormats;
-  	  for(var i = 0;i < afs.length;i++){
-  	     var af = afs[i];
-     if(i != 0 && afs[i-1].quality != af.quality){
-           var dwna = {
-             html: af.quality+".mp3",
-             close: false,
-             click: function(){
-              window.open(af.url);
-             }
-           }
-           dwns.push(dwna);
-         }else{i++;}
-  	  }
-       loader.hide();
-        as.popup({
-          title: x.title,
-          titleSize: 20,
-          image: x.thumbnail[3].url,
-          imageHeight: 210,
-          imageWidth: 280,
-          closeIcon: true,
-          closeBtn: false,
-          buttons: dwns
-         });
-  	})
-  	.catch(err => {
-         loader.hide();
-         as.alert({
-          icon: true,
-          title: "Error",
-          text: "Please enter valid youtube url or try again later"
-         });
-       });
-    });
-          d.appendChild(b);
-          res.appendChild(d);
-        });
-    }
-    )
- </script>
- <script>
-  function abt(){
-    as.popup({
-    title:"Kaviyarasan",
-    closeBtn: false,
-     icon:"kavin.jpg",
-    closeIcon: true
-  });
-  }
-  as_share.init();
- </script>
- <!--Il est de votre ressort d\x27informer les visiteurs \xe0 propos des cookies utilis\xe9s et des donn\xe9es collect\xe9es sur votre blog. Blogger met \xe0 votre disposition une notification standard que vous pouvez personnaliser, remplacer ou afficher telle quelle sur votre blog. Rendez-vous sur http://www.blogger.com/go/cookiechoices pour obtenir de plus amples informations.-->
- <script defer='' src='/js/cookienotice.js'></script>
- <script>
-  document.addEventListener('DOMContentLoaded', function(event) {
-    window.cookieChoices && cookieChoices.showCookieConsentBar && cookieChoices.showCookieConsentBar(
-        (window.cookieOptions && cookieOptions.msg) || 'Ce site utilise des cookies provenant de Google pour fournir ses services et analyser le trafic. Votre adresse\xa0IP et votre user-agent, ainsi que des statistiques relatives aux performances et \xe0 la s\xe9curit\xe9, sont transmis \xe0 Google afin d\x27assurer un service de qualit\xe9, de g\xe9n\xe9rer des statistiques d\x27utilisation, et de d\xe9tecter et de r\xe9soudre les probl\xe8mes d\x27abus.',
-        (window.cookieOptions && cookieOptions.close) || 'OK',
-        (window.cookieOptions && cookieOptions.learn) || 'En savoir plus',
-        (window.cookieOptions && cookieOptions.link) || 'https://www.blogger.com/go/blogspot-cookies');
-  });
- </script>
-
- <script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/3737540651-widgets.js"></script>
- <script type='text/javascript'>
-  window['__wavt'] = 'AOuZoY5GjKTzHnHMfibMj8bKmRnIUYt8Lg:1698860109977';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d577462455918026938','//techimodi.blogspot.com/','577462455918026938');
-  _WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '577462455918026938', 'title': ' yTube', 'url': 'https://techimodi.blogspot.com/', 'canonicalUrl': 'https://techimodi.blogspot.com/', 'homepageUrl': 'https://techimodi.blogspot.com/', 'searchUrl': 'https://techimodi.blogspot.com/search', 'canonicalHomepageUrl': 'https://techimodi.blogspot.com/', 'blogspotFaviconUrl': 'https://techimodi.blogspot.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'en-GB', 'localeUnderscoreDelimited': 'en_gb', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'isDynamicViewsAvailable': true, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22AS Tube - Atom\x22 href\x3d\x22https://techimodi.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22AS Tube - RSS\x22 href\x3d\x22https://techimodi.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22AS Tube - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/577462455918026938/posts/default\x22 /\x3e\n', 'meTag': '\x3clink rel\x3d\x22me\x22 href\x3d\x22https://www.blogger.com/profile/14119495659275178860\x22 /\x3e\n', 'adsenseClientId': 'ca-pub-9516223838558864', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': true, 'adsenseAutoAds': true, 'boqCommentIframeForm': true, 'loginRedirectParam': '', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/24dbc299a9c09ea1', 'plusOneApiSrc': 'https://apis.google.com/js/platform.js', 'disableGComments': true, 'interstitialAccepted': false, 'sharing': {'platforms': [{'name': 'Get link', 'key': 'link', 'shareMessage': 'Get link', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Share to Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': 'Share to Twitter', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Share to Pinterest', 'target': 'pinterest'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth': 0, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27en_GB\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': true, 'jumpLinkMessage': 'Latest Posts', 'pageType': 'index', 'pageName': '', 'pageTitle': 'AS Tube', 'metaDescription': 'Techimodi provides you all apps premium for free online.'}}, {'name': 'features', 'data': {}}, {'name': 'messages', 'data': {'edit': 'Edit', 'linkCopiedToClipboard': 'Link copied to clipboard', 'ok': 'Ok', 'postLink': 'Post link'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': 'Custom', 'isResponsive': true, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'AS Tube', 'description': 'Techimodi provides you all apps premium for free online.', 'url': 'https://techimodi.blogspot.com/', 'type': 'feed', 'isSingleItem': false, 'isMultipleItems': true, 'isError': false, 'isPage': false, 'isPost': false, 'isHomepage': true, 'isArchive': false, 'isLabelSearch': false}}, {'name': 'widgets', 'data': []}]);
- </script>
+<header class="top"><div class="wrap nav"><span class="logo"><i class="fa-brands fa-youtube"></i></span><span class="brand">یوتیوبی کوردی</span></div></header>
+<main class="wrap">
+<section class="hero"><h1>گەڕان و <span class="grad">داگرتنی ڤیدیۆ</span></h1><p>ناوی ڤیدیۆکە بنووسە، ئەنجامەکان ببینە و فۆرماتی بەردەست هەڵبژێرە.</p></section>
+<section class="panel"><div class="search"><input id="query" class="field" type="search" placeholder="ناوی گۆرانی یان ڤیدیۆ بنووسە..." autocomplete="off"><button class="btn" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i> گەڕان</button></div><p class="note">هیچ ڤیدیۆیەک بە شێوەی خۆکار پیشان نادرێت. تەنها ئەو ئەنجامانە دەردەکەون کە خۆت داوایان دەکەیت.</p></section>
+<div id="loader" class="loader"><span class="spin"></span> گەڕان لە یوتیوب...</div><section id="results" class="grid" aria-live="polite"></section><section id="formats"></section>
+</main>
+<footer class="wrap">© <span id="year"></span> یوتیوبی کوردی</footer>
+<div id="modal" class="modal"><div class="modalbox"><div class="modalhead"><b id="modalTitle">بینینی ڤیدیۆ</b><button class="close" id="close">×</button></div><div class="player" id="player"></div></div></div><div id="toast" class="toast"></div>
+<script>
+/* API configuration: keep your existing key value in this declaration when replacing the file. */
+const RAPID_KEY='3a6008168fmshc89e2b9e019262ap1db9f8jsne1aad62d8bff';
+const HEADERS={'X-RapidAPI-Key':RAPID_KEY,'X-RapidAPI-Host':'yt-api.p.rapidapi.com'};
+const $=id=>document.getElementById(id);
+function toast(t){$('toast').textContent=t;$('toast').classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2800)}
+function loading(v){$('loader').classList.toggle('show',v);$('searchBtn').disabled=v}
+async function request(url){const r=await fetch(url,{headers:HEADERS,cache:'no-store'});const x=await r.json();if(!r.ok||x?.error)throw Error(x?.message||'API error');return x}
+function play(id,title){$('modalTitle').textContent=title||'بینینی ڤیدیۆ';$('player').innerHTML=`<iframe src="https://www.youtube.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;$('modal').classList.add('show')}
+function close(){ $('modal').classList.remove('show');$('player').replaceChildren() }
+$('close').onclick=close;$('modal').onclick=e=>{if(e.target===$('modal'))close()};document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+function card(v){const a=document.createElement('article');a.className='video';const t=document.createElement('div');t.className='thumb';const im=document.createElement('img');im.loading='lazy';im.src=v.thumbnail?.[0]?.url||`https://i.ytimg.com/vi/${encodeURIComponent(v.videoId)}/hqdefault.jpg`;im.alt='پێشبینینی ڤیدیۆ';const p=document.createElement('button');p.className='play';p.innerHTML='<i class="fa-solid fa-play"></i>';p.onclick=()=>play(v.videoId,v.title);t.append(im,p);const m=document.createElement('div');m.className='meta';const title=document.createElement('div');title.className='title';title.textContent=v.title||'ڤیدیۆ';const sub=document.createElement('div');sub.className='sub';sub.textContent=v.channelTitle||v.author||'YouTube';const actions=document.createElement('div');actions.className='actions';const watch=document.createElement('button');watch.className='btn secondary';watch.textContent='بینین';watch.onclick=()=>play(v.videoId,v.title);const dl=document.createElement('button');dl.className='btn';dl.textContent='فۆرماتی داگرتن';dl.onclick=()=>formats(v.videoId);actions.append(watch,dl);m.append(title,sub,actions);a.append(t,m);return a}
+async function search(){const q=$('query').value.trim();if(!q)return toast('تکایە ناوی ڤیدیۆکە بنووسە');$('results').replaceChildren();$('formats').replaceChildren();loading(true);try{const x=await request('https://yt-api.p.rapidapi.com/search?type=video&query='+encodeURIComponent(q));const vs=Array.isArray(x.data)?x.data.filter(v=>v?.videoId):[];if(!vs.length){$('results').innerHTML='<div class="empty">هیچ ئەنجامێک نەدۆزرایەوە.</div>';return}vs.slice(0,18).forEach(v=>$('results').append(card(v)))}catch(e){$('results').innerHTML='<div class="empty">گەڕان سەرکەوتوو نەبوو. کلیل و بەشداریی API بپشکنە.</div>';toast('کێشەیەک لە گەڕاندا هەیە')}finally{loading(false)}}
+async function formats(id){loading(true);$('formats').replaceChildren();try{const x=await request('https://yt-api.p.rapidapi.com/dl?id='+encodeURIComponent(id));const box=document.createElement('div');box.className='empty';const h=document.createElement('b');h.textContent=x.title||'فۆرماتە بەردەستەکان';const list=document.createElement('div');list.className='formats';const seen=new Set();function add(label,url){if(!url||seen.has(url))return;seen.add(url);const b=document.createElement('button');b.className='format';b.textContent=label;b.onclick=()=>window.open(url,'_blank','noopener,noreferrer');list.append(b)}(x.formats||[]).forEach(f=>add((f.qualityLabel||f.quality||'ڤیدیۆ')+' MP4',f.url));(x.adaptiveFormats||[]).filter(f=>f.url&&(f.mimeType||'').includes('audio')).forEach(f=>add((f.audioQuality||f.quality||'دەنگ')+' Audio',f.url));box.append(h,list);$('formats').append(box);if(!seen.size)throw Error('no formats')}catch(e){toast('فۆرماتی داگرتن بەردەست نییە')}finally{loading(false)}}
+$('searchBtn').onclick=search;$('query').addEventListener('keydown',e=>{if(e.key==='Enter')search()});$('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
