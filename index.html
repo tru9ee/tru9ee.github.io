@@ -1,147 +1,73 @@
 <!doctype html>
-<html lang="en">
+<html lang="ckb" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b0d12"><meta name="description" content="Modern all-in-one video downloader">
-<title>Multi Downloader — Pro</title>
-<link rel="icon" href="Etc/download.png"><link rel="stylesheet" href="css/main.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090d18">
+<meta name="description" content="داونلۆدەری میدیای کوردی بۆ یوتیوب، ئینستاگرام، فەیسبووک و X">
+<title>داونلۆدەری میدیا | کوردی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+:root{color-scheme:dark;--bg:#080c16;--panel:#111827;--panel2:#151f31;--line:#26334a;--text:#f5f7ff;--muted:#9ba9bf;--blue:#6685ff;--cyan:#4bd5d0;--pink:#ff5478;--shadow:0 18px 55px #0006}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#273b7b55,transparent 36%),radial-gradient(ellipse at 100% 25%,#174c5550,transparent 32%),var(--bg);color:var(--text);font-family:"Noto Sans Arabic",system-ui,sans-serif;min-height:100vh}button,input{font:inherit}button{cursor:pointer}.wrap{width:min(1050px,calc(100% - 30px));margin:auto}.top{position:sticky;top:0;z-index:20;background:#080c16d9;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff12}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:clamp(18px,4vw,24px)}.logo{width:45px;height:45px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),#8c5bff);box-shadow:0 8px 28px #6685ff55;font-size:20px}.iconbtn{width:44px;height:44px;border:1px solid var(--line);border-radius:14px;color:var(--text);background:var(--panel)}.hero{text-align:center;padding:46px 0 28px}.eyebrow{display:inline-flex;gap:8px;align-items:center;padding:7px 13px;border:1px solid #6685ff55;border-radius:999px;color:#c7d2ff;background:#6685ff13;font-size:13px}.hero h1{font-size:clamp(30px,7vw,54px);line-height:1.3;margin:18px 0 10px;font-weight:900}.gradient{background:linear-gradient(90deg,#8ba4ff,#54ddd2);background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:680px;margin:0 auto;line-height:2;font-size:15px}.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:22px 0 16px}.tab{border:1px solid var(--line);background:#111827c9;color:var(--muted);border-radius:16px;padding:13px 8px;display:flex;align-items:center;justify-content:center;gap:9px;font-weight:800;transition:.2s}.tab:hover{transform:translateY(-2px);border-color:#6685ff88}.tab.active{background:linear-gradient(135deg,#526ff0,#7959e8);border-color:transparent;color:white;box-shadow:0 10px 28px #526ff044}.panel{display:none;animation:rise .35s ease}.panel.active{display:block}@keyframes rise{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}.card{background:linear-gradient(145deg,#151f31ed,#101827f2);border:1px solid var(--line);border-radius:24px;padding:clamp(17px,4vw,27px);box-shadow:var(--shadow)}.sectionhead{display:flex;align-items:center;gap:12px;margin-bottom:18px}.sectionicon{width:43px;height:43px;border-radius:14px;background:#6685ff22;color:#9aafff;display:grid;place-items:center;font-size:18px}.sectionhead h2{font-size:19px;margin:0}.sectionhead p{font-size:12px;color:var(--muted);margin:3px 0 0}.searchrow{display:flex;gap:10px}.field{flex:1;min-width:0;background:#090f1c;border:1px solid #2a3952;border-radius:15px;color:white;padding:15px 16px;outline:none;transition:.2s;direction:rtl}.field:focus{border-color:var(--blue);box-shadow:0 0 0 3px #6685ff22}.field::placeholder{color:#73819a}.btn{border:0;border-radius:15px;padding:13px 19px;color:white;font-weight:800;background:linear-gradient(135deg,#526ff0,#7959e8);box-shadow:0 8px 22px #526ff033;transition:transform .2s,filter .2s;white-space:nowrap}.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}.btn:disabled{opacity:.55;cursor:wait;transform:none}.btn.secondary{background:#1d2a40;box-shadow:none;border:1px solid var(--line)}.btn.coral{background:linear-gradient(135deg,#fa4e70,#ed6b91)}.hint{color:var(--muted);font-size:13px;line-height:1.9;margin:13px 2px 0}.urlbox{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}.loader{display:none;align-items:center;justify-content:center;gap:11px;padding:24px;color:#c8d2e4}.loader.show{display:flex}.spinner{width:20px;height:20px;border:2px solid #52617b;border-top-color:#8ca3ff;border-radius:50%;animation:spin .7s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.results{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:15px;margin-top:18px}.video-card,.result-card{min-width:0;overflow:hidden;background:#0d1422;border:1px solid var(--line);border-radius:18px;animation:rise .3s ease}.thumb{position:relative;aspect-ratio:16/9;background:#1c2940;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;display:block}.play{position:absolute;inset:0;margin:auto;width:54px;height:54px;border:0;border-radius:50%;background:#ffffffed;color:#101827;font-size:17px;box-shadow:0 5px 24px #0007}.meta{padding:14px}.title{font-weight:800;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.small{color:var(--muted);font-size:12px;margin-top:6px}.actions{display:flex;gap:8px;margin-top:13px}.actions .btn{flex:1;padding:10px 8px;font-size:13px}.empty{grid-column:1/-1;border:1px dashed #3a4b68;border-radius:16px;padding:24px;text-align:center;color:var(--muted);line-height:1.9}.result-card{padding:16px}.result-card a{color:#aebeff;word-break:break-all}.footer{text-align:center;color:#71809a;font-size:12px;padding:34px 0 25px}.modal{display:none;position:fixed;inset:0;z-index:50;background:#000b;backdrop-filter:blur(8px);padding:18px;align-items:center;justify-content:center}.modal.show{display:flex}.modalbox{width:min(850px,100%);background:#111827;border:1px solid var(--line);border-radius:22px;overflow:hidden}.modalhead{display:flex;align-items:center;justify-content:space-between;padding:13px 17px}.close{border:0;background:#26334a;color:white;border-radius:10px;width:36px;height:36px;font-size:22px}.player{aspect-ratio:16/9;background:#000}.player iframe{width:100%;height:100%;border:0}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:80;background:#f5f7ff;color:#111827;padding:12px 18px;border-radius:13px;box-shadow:var(--shadow);font-weight:700;max-width:calc(100% - 30px);transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:650px){.wrap{width:min(100% - 22px,600px)}.nav{height:66px}.hero{padding:34px 0 19px}.tabs{grid-template-columns:repeat(2,1fr)}.tab{padding:12px 5px;font-size:13px}.searchrow{flex-direction:column}.searchrow .btn{width:100%}.results{grid-template-columns:1fr}.card{border-radius:20px}.hero p{font-size:14px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
 </head>
 <body>
-<header class="topbar"><nav class="nav"><div class="brand"><span class="brand-badge"><i class="fa-solid fa-bolt"></i></span>Multi Downloader</div><div class="nav-spacer"></div><button class="icon-btn" onclick="sharePage()" aria-label="Share"><i class="fa-solid fa-share-nodes"></i></button></nav></header>
-<main class="container">
-<section class="hero"><h1>Download. <span>Watch. Save.</span></h1><p>One clean page for YouTube, Instagram, Facebook and X. Search YouTube videos, watch them inside the app, and get available download formats.</p></section>
-<div class="tabs">
-<button class="tab active" data-tab="youtube"><i class="fa-brands fa-youtube"></i>YouTube</button>
-<button class="tab" data-tab="instagram"><i class="fa-brands fa-instagram"></i>Instagram</button>
-<button class="tab" data-tab="facebook"><i class="fa-brands fa-facebook"></i>Facebook</button>
-<button class="tab" data-tab="x"><i class="fa-brands fa-x-twitter"></i>X / Twitter</button>
+<header class="top"><div class="wrap nav"><div class="brand"><span class="logo"><i class="fa-solid fa-bolt"></i></span><span>داونلۆدەری میدیا</span></div><button class="iconbtn" id="shareBtn" aria-label="هاوبەشکردن"><i class="fa-solid fa-share-nodes"></i></button></div></header>
+<main class="wrap">
+<section class="hero"><span class="eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> خێرا • سادە • بە کوردی</span><h1>هەموو میدیایەکەت<br><span class="gradient">لە یەک شوێن</span></h1><p>بەستەری ڤیدیۆکە دابنێ یان لە یوتیوب بگەڕێ. ئەنجامەکان تەنها کاتێک پیشان دەدرێن کە خۆت داواکاری بکەیت.</p></section>
+<div class="tabs" role="tablist">
+<button class="tab active" data-tab="youtube"><i class="fa-brands fa-youtube"></i> یوتیوب</button>
+<button class="tab" data-tab="instagram"><i class="fa-brands fa-instagram"></i> ئینستاگرام</button>
+<button class="tab" data-tab="facebook"><i class="fa-brands fa-facebook"></i> فەیسبووک</button>
+<button class="tab" data-tab="x"><i class="fa-brands fa-x-twitter"></i> X / تویتەر</button>
 </div>
-
 <section id="youtube" class="panel active">
-<div class="searchbox"><input id="ytSearch" type="search" placeholder="Search YouTube videos..." autocomplete="off"><button class="btn" onclick="searchYT()"><i class="fa-solid fa-magnifying-glass"></i>&nbsp; Search</button></div>
-<div class="hint">Search YouTube → tap ▶ to watch → Download to choose available formats.</div>
-<div class="searchbox secondary"><input id="ytUrl" type="url" placeholder="Or paste a YouTube video / Shorts URL"><button class="btn blue" onclick="downloadYTUrl()">Get Downloads</button></div>
-<div id="ytLoader" class="loader"><div class="spinner"></div><span id="ytLoaderText">Loading YouTube…</span></div>
-<div id="ytTrend" class="results"></div><div id="ytResults" class="results"></div>
+<div class="card"><div class="sectionhead"><span class="sectionicon"><i class="fa-brands fa-youtube"></i></span><div><h2>گەڕان لە یوتیوب</h2><p>ناوی ڤیدیۆ یان وشەی گەڕان بنووسە</p></div></div>
+<div class="searchrow"><input class="field" id="ytSearch" type="search" placeholder="بۆ نموونە: گۆرانی کوردی..." autocomplete="off"><button class="btn" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i> بگەڕێ</button></div>
+<div class="urlbox"><div class="searchrow"><input class="field" id="ytUrl" type="url" placeholder="یان لینکی یوتیوب / Shorts دابنێ"><button class="btn secondary" id="ytUrlBtn">هەڵبژاردەکانی داگرتن</button></div></div>
+<div class="hint">دوای گەڕان، دەتوانیت ڤیدیۆکە ببینیت یان فۆرماتی بەردەست هەڵبژێریت.</div></div>
+<div id="ytLoader" class="loader"><span class="spinner"></span><span id="ytLoaderText">گەڕان...</span></div><div id="ytResults" class="results" aria-live="polite"></div>
 </section>
-
-<section id="instagram" class="panel">
-<div class="searchbox"><input id="igUrl" placeholder="Paste Instagram post / reel URL"><button class="btn blue" onclick="downloadIG()">Download</button></div><div class="hint">Public posts/reels only. Login-required or private media may not work.</div>
-<div id="igLoader" class="loader"><div class="spinner"></div>Fetching media…</div><div id="igResult" class="results"></div>
-</section>
-
-<section id="facebook" class="panel">
-<div class="searchbox"><input id="fbUrl" placeholder="Paste Facebook video / reel URL"><button class="btn blue" onclick="downloadFB()">Download</button></div><div class="hint">Public Facebook videos/reels only.</div>
-<div id="fbLoader" class="loader"><div class="spinner"></div>Fetching media…</div><div id="fbResult" class="results"></div>
-</section>
-
-<section id="x" class="panel">
-<div class="searchbox"><input id="xUrl" placeholder="Paste X / Twitter video URL"><button class="btn green" onclick="downloadX()">Get media</button></div><div class="hint">Uses a public media resolver. Availability can vary by source and region.</div>
-<div id="xLoader" class="loader"><div class="spinner"></div>Fetching media…</div><div id="xResult" class="results"></div>
-</section>
+<section id="instagram" class="panel"><div class="card"><div class="sectionhead"><span class="sectionicon"><i class="fa-brands fa-instagram"></i></span><div><h2>داگرتنی ئینستاگرام</h2><p>لینکی پۆست یان ڕیل دابنێ</p></div></div><div class="searchrow"><input class="field" id="igUrl" type="url" placeholder="لینکی پۆست / ڕیلی ئینستاگرام"><button class="btn" id="igBtn">ئامادەکردن</button></div><p class="hint">تەنها ناوەڕۆکی گشتی پشتگیری دەکرێت. ناوەڕۆکی تایبەت یان پێویستی بە چوونەژوورەوە لەوانەیە کار نەکات.</p></div><div id="igLoader" class="loader"><span class="spinner"></span> پشکنینی لینک...</div><div id="igResult" class="results"></div></section>
+<section id="facebook" class="panel"><div class="card"><div class="sectionhead"><span class="sectionicon"><i class="fa-brands fa-facebook"></i></span><div><h2>داگرتنی فەیسبووک</h2><p>لینکی ڤیدیۆ یان ڕیل دابنێ</p></div></div><div class="searchrow"><input class="field" id="fbUrl" type="url" placeholder="لینکی ڤیدیۆ / ڕیلی فەیسبووک"><button class="btn" id="fbBtn">ئامادەکردن</button></div><p class="hint">تەنها ڤیدیۆ گشتییەکان پشتگیری دەکرێن.</p></div><div id="fbLoader" class="loader"><span class="spinner"></span> پشکنینی لینک...</div><div id="fbResult" class="results"></div></section>
+<section id="x" class="panel"><div class="card"><div class="sectionhead"><span class="sectionicon"><i class="fa-brands fa-x-twitter"></i></span><div><h2>داگرتنی X</h2><p>لینکی پۆستی X دابنێ</p></div></div><div class="searchrow"><input class="field" id="xUrl" type="url" placeholder="لینکی پۆستی X / تویتەر"><button class="btn" id="xBtn">وەرگرتنی میدیا</button></div><p class="hint">بەردەستبوونی میدیا بە جۆری پۆست و خزمەتگوزاریی سەرچاوەوە دەگۆڕێت.</p></div><div id="xLoader" class="loader"><span class="spinner"></span> پشکنینی لینک...</div><div id="xResult" class="results"></div></section>
 </main>
-<footer class="footer">Multi Downloader Pro • Personal images removed • Built as a single-page mobile-first interface</footer>
-
-<div id="modal" class="modal" onclick="if(event.target===this)closePlayer()"><div class="modal-box"><div class="modal-head"><b id="modalTitle">YouTube Player</b><button class="close" onclick="closePlayer()">&times;</button></div><div class="player" id="player"></div></div></div>
-<div id="toast" class="toast"></div>
+<footer class="footer wrap">© <span id="year"></span> داونلۆدەری میدیا • بەکارهێنانی ئاسان لە مۆبایل و کۆمپیوتەر</footer>
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="پەخشکەری ڤیدیۆ"><div class="modalbox"><div class="modalhead"><b id="modalTitle">پەخشکەر</b><button class="close" id="closeModal" aria-label="داخستن">×</button></div><div class="player" id="player"></div></div></div>
+<div id="toast" class="toast" role="status"></div>
 <script>
+/* API configuration: keep your existing key value in this declaration when replacing the file. */
 const RAPID_KEY='3a6008168fmshc89e2b9e019262ap1db9f8jsne1aad62d8bff';
 const ytHeaders={'X-RapidAPI-Key':RAPID_KEY,'X-RapidAPI-Host':'yt-api.p.rapidapi.com'};
 const igHeaders={'X-RapidAPI-Key':RAPID_KEY,'X-RapidAPI-Host':'instagram-story-downloader-media-downloader.p.rapidapi.com'};
 const fbHeaders={'X-RapidAPI-Key':RAPID_KEY,'X-RapidAPI-Host':'facebook-reel-and-video-downloader.p.rapidapi.com'};
-
 const $=id=>document.getElementById(id);
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');$(b.dataset.tab).classList.add('active')});
-function showLoader(id,v=true,text){$(id).classList.toggle('show',v);if(text&&id==='ytLoader')$('ytLoaderText').textContent=text}
-function toast(t){const e=$('toast');e.textContent=t;e.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>e.classList.remove('show'),2800)}
-function safe(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
-function attr(s){return safe(s).replace(/`/g,'&#096;')}
+const toast=t=>{const e=$('toast');e.textContent=t;e.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>e.classList.remove('show'),3000)};
+const safe=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+const attr=s=>safe(s).replace(/`/g,'&#096;');
+function loader(id,on=true){$(id).classList.toggle('show',on)}
+function validUrl(raw){try{const u=new URL(raw);return ['http:','https:'].includes(u.protocol)}catch{return false}}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x.id===b.dataset.tab))}));
 function getThumb(v){return v?.thumbnail?.[0]?.url||v?.thumbnail?.[1]?.url||v?.thumbnail?.[2]?.url||`https://i.ytimg.com/vi/${encodeURIComponent(v?.videoId||'')}/hqdefault.jpg`}
-function openPlayer(id,title){
-  if(!id)return;
-  $('modalTitle').textContent=title||'YouTube Player';
-  $('player').innerHTML=`<iframe src="https://www.youtube.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&playsinline=1" title="YouTube video player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
-  $('modal').classList.add('show');
-}
+function openPlayer(id,title){if(!id)return;$('modalTitle').textContent=title||'پەخشکەر';$('player').innerHTML=`<iframe src="https://www.youtube.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;$('modal').classList.add('show')}
 function closePlayer(){$('modal').classList.remove('show');$('player').innerHTML=''}
-function apiError(r,x){return !r.ok || x?.error || x?.message || x?.status==='error'}
-
-function makeYTCard(v){
-  const article=document.createElement('article');article.className='video-card';
-  const thumb=document.createElement('div');thumb.className='thumb';
-  const img=document.createElement('img');img.loading='lazy';img.src=getThumb(v);img.alt='';img.onerror=()=>{img.src=`https://i.ytimg.com/vi/${encodeURIComponent(v.videoId)}/hqdefault.jpg`};
-  const play=document.createElement('button');play.className='play';play.type='button';play.innerHTML='<i class="fa-solid fa-play"></i>';play.title='Watch video';play.onclick=()=>openPlayer(v.videoId,v.title);
-  thumb.append(img,play);
-  const meta=document.createElement('div');meta.className='meta';
-  const title=document.createElement('div');title.className='title';title.textContent=v.title||'YouTube video';
-  const small=document.createElement('div');small.className='small';small.textContent=v.channelTitle||v.author||v.channelName||'YouTube';
-  const actions=document.createElement('div');actions.className='actions';
-  const dl=document.createElement('button');dl.className='btn';dl.type='button';dl.textContent='Download';dl.onclick=()=>ytFormats(v.videoId);
-  const watch=document.createElement('button');watch.className='btn blue';watch.type='button';watch.textContent='Watch';watch.onclick=()=>openPlayer(v.videoId,v.title);
-  actions.append(dl,watch);meta.append(title,small,actions);article.append(thumb,meta);return article;
-}
-
-async function ytFetch(url){
-  const r=await fetch(url,{method:'GET',headers:ytHeaders,cache:'no-store'});
-  let x=null;try{x=await r.json()}catch(e){throw new Error('Invalid API response')}
-  if(apiError(r,x))throw new Error(x?.message||x?.error||`API error ${r.status}`);
-  return x;
-}
-
-async function searchYT(){
-  const q=$('ytSearch').value.trim();if(!q)return toast('Enter a YouTube search term');
-  showLoader('ytLoader',true,'Searching YouTube…');$('ytResults').innerHTML='';
-  try{
-    const x=await ytFetch('https://yt-api.p.rapidapi.com/search?type=video&query='+encodeURIComponent(q));
-    const vs=Array.isArray(x.data)?x.data.filter(v=>v&&v.videoId):[];
-    if(!vs.length){$('ytResults').innerHTML='<div class="empty" style="grid-column:1/-1">No YouTube videos found. Try another search.</div>';return}
-    const frag=document.createDocumentFragment();vs.slice(0,18).forEach(v=>frag.appendChild(makeYTCard(v)));$('ytResults').appendChild(frag);
-  }catch(e){console.error('YouTube search:',e);toast('YouTube search failed. Please try again.');$('ytResults').innerHTML='<div class="empty" style="grid-column:1/-1">YouTube search could not be loaded. Check your RapidAPI subscription/key and try again.</div>'}
-  finally{showLoader('ytLoader',false)}
-}
-
-async function loadTrending(){
-  showLoader('ytLoader',true,'Loading YouTube videos…');
-  try{
-    const x=await ytFetch('https://yt-api.p.rapidapi.com/trending?geo=IN&lang=en');
-    const vs=Array.isArray(x.data)?x.data.filter(v=>v&&v.videoId):[];
-    const box=$('ytTrend');box.innerHTML='';
-    if(vs.length){const frag=document.createDocumentFragment();vs.slice(0,12).forEach(v=>frag.appendChild(makeYTCard(v)));box.appendChild(frag)}
-  }catch(e){console.warn('Trending unavailable:',e)}finally{showLoader('ytLoader',false)}
-}
-
-function addFormatButtons(x,box){
-  const title=document.createElement('div');title.className='empty';title.style.gridColumn='1/-1';
-  const heading=document.createElement('b');heading.textContent=x.title||'Available YouTube formats';title.appendChild(heading);
-  const actions=document.createElement('div');actions.className='actions';actions.style.flexWrap='wrap';
-  const seen=new Set();
-  const add=(label,url)=>{if(!url||seen.has(url))return;seen.add(url);const b=document.createElement('button');b.className='btn';b.type='button';b.textContent=label;b.onclick=()=>window.open(url,'_blank','noopener,noreferrer');actions.appendChild(b)};
-  (Array.isArray(x.formats)?x.formats:[]).forEach(f=>add((f.qualityLabel||f.quality||'Video')+' MP4',f.url));
-  const audio=(Array.isArray(x.adaptiveFormats)?x.adaptiveFormats:[]).filter(f=>f?.url && (f.mimeType||'').includes('audio'));
-  audio.slice(0,5).forEach(f=>add((f.audioQuality||f.quality||'Audio')+' Audio',f.url));
-  title.appendChild(actions);box.prepend(title);return seen.size;
-}
-async function ytFormats(id){
-  if(!id)return;
-  showLoader('ytLoader',true,'Getting download formats…');
-  try{const x=await ytFetch('https://yt-api.p.rapidapi.com/dl?id='+encodeURIComponent(id));const n=addFormatButtons(x,$('ytResults'));if(!n)throw new Error('No formats');toast('Choose a format to open/download');window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});}
-  catch(e){console.error('YouTube formats:',e);toast('Download formats unavailable for this video.');}
-  finally{showLoader('ytLoader',false)}
-}
-function extractYTId(raw){
-  try{const u=new URL(raw);if(u.hostname.includes('youtu.be'))return u.pathname.split('/').filter(Boolean)[0]||'';if(u.hostname.includes('youtube.com')){if(u.pathname==='/watch')return u.searchParams.get('v')||'';if(u.pathname.startsWith('/shorts/'))return u.pathname.split('/')[2]||'';if(u.pathname.startsWith('/embed/'))return u.pathname.split('/')[2]||''}}catch(e){}
-  return '';
-}
-async function downloadYTUrl(){const raw=$('ytUrl').value.trim();const id=extractYTId(raw);if(!id)return toast('Enter a valid YouTube video or Shorts URL');await ytFormats(id)}
-
-async function downloadIG(){const u=$('igUrl').value.trim();if(!u)return toast('Paste an Instagram URL');showLoader('igLoader');$('igResult').innerHTML='';try{const r=await fetch('https://instagram-story-downloader-media-downloader.p.rapidapi.com/index?url='+encodeURIComponent(u),{headers:igHeaders});const x=await r.json();if(x.media){const ms=Array.isArray(x.media)?x.media:[x.media];$('igResult').innerHTML=ms.map((m,i)=>card('Instagram media '+(i+1),m)).join('')}else if(x.url||x.video||x.image){$('igResult').innerHTML=card('Instagram media',x.url||x.video||x.image)}else throw Error()}catch(e){toast('Instagram media unavailable.')}finally{showLoader('igLoader',false)}}
-async function downloadFB(){const u=$('fbUrl').value.trim();if(!u)return toast('Paste a Facebook URL');showLoader('fbLoader');$('fbResult').innerHTML='';try{const r=await fetch('https://facebook-reel-and-video-downloader.p.rapidapi.com/app/main.php?url='+encodeURIComponent(u),{headers:fbHeaders});const x=await r.json();const links=x.links||{};const entries=Object.entries(links);if(!entries.length)throw Error();$('fbResult').innerHTML=entries.map(([k,v])=>card('Facebook '+k,v,x.thumbnail)).join('')}catch(e){toast('Facebook media unavailable.')}finally{showLoader('fbLoader',false)}}
-async function downloadX(){const u=$('xUrl').value.trim();if(!u)return toast('Paste an X/Twitter URL');showLoader('xLoader');$('xResult').innerHTML='';try{const r=await fetch('https://api.cobalt.tools/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:u,downloadMode:'auto'})});const x=await r.json();const url=x.url||x.audio;if(!url)throw Error();$('xResult').innerHTML=card('X / Twitter media',url);toast('Media ready')}catch(e){toast('X media resolver unavailable right now.')}finally{showLoader('xLoader',false)}}
-function card(title,url,img){return `<article class="video-card"><div class="thumb">${img?`<img loading="lazy" src="${safe(img)}" alt="">`:'<div style="height:100%;display:grid;place-items:center;color:#657080"><i class="fa-solid fa-download" style="font-size:44px"></i></div>'}</div><div class="meta"><div class="title">${safe(title)}</div><div class="actions"><button class="btn" onclick="window.open('${attr(url)}','_blank','noopener,noreferrer')">Download</button></div></div></article>`}
-function sharePage(){if(navigator.share)navigator.share({title:document.title,url:location.href});else{navigator.clipboard?.writeText(location.href);toast('Page link copied')}}
-$('ytSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();searchYT()}});$('ytUrl').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();downloadYTUrl()}});
-$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closePlayer()});
-loadTrending();
+$('closeModal').addEventListener('click',closePlayer);$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closePlayer()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closePlayer()});
+async function apiJson(url,headers){const r=await fetch(url,{headers,cache:'no-store'});let x;try{x=await r.json()}catch{throw Error('وەڵامی API دروست نییە')}if(!r.ok||x?.error||x?.status==='error')throw Error(x?.message||`هەڵەی ${r.status}`);return x}
+function makeYTCard(v){const article=document.createElement('article');article.className='video-card';const thumb=document.createElement('div');thumb.className='thumb';const img=document.createElement('img');img.loading='lazy';img.src=getThumb(v);img.alt='وێنەی پێشبینین';img.onerror=()=>{img.onerror=null;img.src=`https://i.ytimg.com/vi/${encodeURIComponent(v.videoId)}/hqdefault.jpg`};const play=document.createElement('button');play.className='play';play.type='button';play.innerHTML='<i class="fa-solid fa-play"></i>';play.setAttribute('aria-label','بینینی ڤیدیۆ');play.onclick=()=>openPlayer(v.videoId,v.title);thumb.append(img,play);const meta=document.createElement('div');meta.className='meta';const title=document.createElement('div');title.className='title';title.textContent=v.title||'ڤیدیۆ';const small=document.createElement('div');small.className='small';small.textContent=v.channelTitle||v.author||v.channelName||'YouTube';const actions=document.createElement('div');actions.className='actions';const dl=document.createElement('button');dl.className='btn';dl.textContent='داگرتن';dl.onclick=()=>ytFormats(v.videoId);const watch=document.createElement('button');watch.className='btn secondary';watch.textContent='بینین';watch.onclick=()=>openPlayer(v.videoId,v.title);actions.append(dl,watch);meta.append(title,small,actions);article.append(thumb,meta);return article}
+async function searchYT(){const q=$('ytSearch').value.trim();if(!q)return toast('تکایە وشەی گەڕان بنووسە');loader('ytLoader');$('ytResults').replaceChildren();try{const x=await apiJson('https://yt-api.p.rapidapi.com/search?type=video&query='+encodeURIComponent(q),ytHeaders);const vs=Array.isArray(x.data)?x.data.filter(v=>v?.videoId):[];if(!vs.length){$('ytResults').innerHTML='<div class="empty">هیچ ئەنجامێک نەدۆزرایەوە. وشەیەکی تر تاقی بکەرەوە.</div>';return}const frag=document.createDocumentFragment();vs.slice(0,18).forEach(v=>frag.append(makeYTCard(v)));$('ytResults').append(frag)}catch(e){console.error(e);$('ytResults').innerHTML='<div class="empty">گەڕان سەرکەوتوو نەبوو. کلیل و بەشداریی RapidAPI بپشکنە.</div>';toast('کێشەیەک لە گەڕاندا ڕوویدا')}finally{loader('ytLoader',false)}}
+function extractYTId(raw){try{const u=new URL(raw);if(u.hostname.includes('youtu.be'))return u.pathname.split('/').filter(Boolean)[0]||'';if(u.hostname.includes('youtube.com')){if(u.pathname==='/watch')return u.searchParams.get('v')||'';if(u.pathname.startsWith('/shorts/'))return u.pathname.split('/')[2]||'';if(u.pathname.startsWith('/embed/'))return u.pathname.split('/')[2]||''}}catch{}return ''}
+function showFormats(x,target){target.replaceChildren();const box=document.createElement('div');box.className='empty';const h=document.createElement('div');h.textContent=x.title||'فۆرماتە بەردەستەکان';h.style.fontWeight='800';const actions=document.createElement('div');actions.className='actions';actions.style.flexWrap='wrap';const seen=new Set();const add=(label,url)=>{if(!url||seen.has(url))return;seen.add(url);const b=document.createElement('button');b.className='btn';b.textContent=label;b.onclick=()=>window.open(url,'_blank','noopener,noreferrer');actions.append(b)};(Array.isArray(x.formats)?x.formats:[]).forEach(f=>add((f.qualityLabel||f.quality||'ڤیدیۆ')+' MP4',f.url));(Array.isArray(x.adaptiveFormats)?x.adaptiveFormats:[]).filter(f=>f?.url&&(f.mimeType||'').includes('audio')).slice(0,5).forEach(f=>add((f.audioQuality||f.quality||'دەنگ')+' Audio',f.url));box.append(h,actions);target.append(box);if(!seen.size)throw Error('فۆرمات بەردەست نییە')}
+async function ytFormats(id){if(!id)return;loader('ytLoader');try{const x=await apiJson('https://yt-api.p.rapidapi.com/dl?id='+encodeURIComponent(id),ytHeaders);showFormats(x,$('ytResults'));toast('فۆرماتێک هەڵبژێرە')}catch(e){toast('فۆرماتی داگرتن بەردەست نییە')}finally{loader('ytLoader',false)}}
+async function downloadYTUrl(){const id=extractYTId($('ytUrl').value.trim());if(!id)return toast('لینکی دروستی یوتیوب دابنێ');await ytFormats(id)}
+function mediaCard(title,url,img){const a=document.createElement('article');a.className='result-card';if(img){const im=document.createElement('img');im.src=img;im.alt='';im.loading='lazy';im.style.cssText='width:100%;border-radius:12px;margin-bottom:10px';a.append(im)}const h=document.createElement('div');h.className='title';h.textContent=title;const b=document.createElement('button');b.className='btn';b.style.marginTop='12px';b.textContent='کردنەوە / داگرتن';b.onclick=()=>window.open(url,'_blank','noopener,noreferrer');a.append(h,b);return a}
+async function downloadIG(){const u=$('igUrl').value.trim();if(!validUrl(u))return toast('لینکی دروست دابنێ');loader('igLoader');$('igResult').replaceChildren();try{const x=await apiJson('https://instagram-story-downloader-media-downloader.p.rapidapi.com/index?url='+encodeURIComponent(u),igHeaders);const ms=Array.isArray(x.media)?x.media:[x.media||x.url||x.video||x.image].filter(Boolean);if(!ms.length)throw Error();ms.forEach((m,i)=>{const url=typeof m==='string'?m:(m.url||m.video||m.image);if(url)$('igResult').append(mediaCard('میدیای ئینستاگرام '+(i+1),url,m.thumbnail))})}catch(e){toast('نەتوانرا میدیای ئینستاگرام بهێنرێت')}finally{loader('igLoader',false)}}
+async function downloadFB(){const u=$('fbUrl').value.trim();if(!validUrl(u))return toast('لینکی دروست دابنێ');loader('fbLoader');$('fbResult').replaceChildren();try{const x=await apiJson('https://facebook-reel-and-video-downloader.p.rapidapi.com/app/main.php?url='+encodeURIComponent(u),fbHeaders);const entries=Object.entries(x.links||{});if(!entries.length)throw Error();entries.forEach(([k,v])=>{const url=typeof v==='string'?v:(v.url||v.link);if(url)$('fbResult').append(mediaCard('فەیسبووک · '+k,url,x.thumbnail))})}catch(e){toast('نەتوانرا ڤیدیۆی فەیسبووک بهێنرێت')}finally{loader('fbLoader',false)}}
+async function downloadX(){const u=$('xUrl').value.trim();if(!validUrl(u))return toast('لینکی دروست دابنێ');loader('xLoader');$('xResult').replaceChildren();try{const r=await fetch('https://api.cobalt.tools/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:u,downloadMode:'auto'})});const x=await r.json();const url=x.url||x.audio;if(!r.ok||!url)throw Error();$('xResult').append(mediaCard('میدیای X / تویتەر',url))}catch(e){toast('ئەم لینکە ئێستا چارەسەر نەکرا')}finally{loader('xLoader',false)}}
+$('searchBtn').onclick=searchYT;$('ytUrlBtn').onclick=downloadYTUrl;$('igBtn').onclick=downloadIG;$('fbBtn').onclick=downloadFB;$('xBtn').onclick=downloadX;$('ytSearch').addEventListener('keydown',e=>{if(e.key==='Enter')searchYT()});$('ytUrl').addEventListener('keydown',e=>{if(e.key==='Enter')downloadYTUrl()});$('shareBtn').onclick=async()=>{try{if(navigator.share)await navigator.share({title:document.title,url:location.href});else{await navigator.clipboard.writeText(location.href);toast('لینک کۆپی کرا')}}catch{}};$('year').textContent=new Date().getFullYear();
 </script>
-</body></html>
+</body>
+</html>
